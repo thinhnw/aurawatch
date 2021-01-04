@@ -71,7 +71,7 @@ export default function ProductDetail() {
                                 <div className="product-fieldset__QTY">
                                     <label htmlFor="" className="product-fieldset__label">QTY</label>
                                     <div className="control-input">
-                                        <input name="QTY" maxLength="12" type="number" className="product-fieldset__input"/>
+                                        <input name="QTY" maxLength="12" type="number" min="0" className="product-fieldset__input"/>
                                     </div>
                                     <button type="submit" className="product-primary__button">
                                         <span className="product-primary__cart">ADD TO CART</span>
@@ -81,27 +81,42 @@ export default function ProductDetail() {
                             <div className="product-social">
                                 <div className="product-social__links">
                                     <a href="" className="product-social__item">
+                                        <i className="product-social__icon fas fa-heart"></i>
                                     </a>
                                     <a href="" className="product-social__item">
+                                        <i className="product-social__icon far fa-envelope"></i>
                                     </a>
                                     <a href="" className="product-social__item">
+                                        <i className="product-social__icon fas fa-share"></i>
                                     </a>
                                 </div>
                             </div>
-
+                            <div className="product-custom">
+                                <div className="product-container">
+                                    <ul className="product-container__tab">
+                                        <li className="active">
+                                            <a href="/" className="active-tab">DELIVERY</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="tab-content">
+                                <div className="tab-content__tab1">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                                    unknown printer took a galley of type and scrambled it to make a typespecimen book.
+                                    It has survived not only five centuries, but also the leap into electronic
+                                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with
+                                    the release of Letraset sheets containing Lorem Ipsum passages
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="product-detailed">
                         <div className="product-date-items">
                             <ul className="product-data__navbar">
                                 <li className="product-data__list">
-                                    <a href="" className="product-data__link">DETAILS</a>
-                                </li>
-                                <li className="product-data__list">
                                     <a href="" className="product-data__link">REVIEWS</a>
-                                </li>
-                                <li className="product-data__list">
-                                    <a href="" className="product-data__link">CUSTOM TAB</a>
                                 </li>
                             </ul>
                         </div>
