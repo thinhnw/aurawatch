@@ -16,7 +16,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
 } from "react-router-dom";
 import ProductsListing from "./category/ProductsListing";
 
@@ -30,14 +29,14 @@ export default function App() {
                 <Route path="/category">
                     <Category />
                 </Route>
+                <Route path='/detail'>
+                    <Product />
+                </Route>
                 <Route path="/login">
                     <LogInPage />
                 </Route>
-                <Route path='/users/signup'>
+                <Route path='/signup'>
                     <SignUpPage />
-                </Route>
-                <Route path='/detail'>
-                    <Product />
                 </Route>
                 <Route path="/">
                     <Home />

@@ -1,6 +1,5 @@
 import React from 'react';
 import './css/ProductsListing.css';
-
 import img1 from './images/pro_3_1_3_1.jpeg';
 import ProductItem from "./ProductItem";
 import { makeStyles } from '@material-ui/core/styles';
@@ -34,22 +33,24 @@ export default function ProductsListing() {
                             <h3 className="category__heading">CATEGORIES</h3>
                             <ul className="category-list">
                                 <li className="category-item">
-                                    <a href="#" className="category-item__link">Collections</a>
+                                    <a href="/#" className="category-item__link">
+                                        <span className="ProductsListing_collections">Collections</span>
+                                    </a>
                                 </li>
                                 <li className="category-item">
-                                    <a href="#" className="category-item__link">For Him</a>
+                                    <a href="/#" className="category-item__link">For Him</a>
                                 </li>
                                 <li className="category-item">
-                                    <a href="#" className="category-item__link">For Her</a>
+                                    <a href="/#" className="category-item__link">For Her</a>
                                 </li>
                                 <li className="category-item">
-                                    <a href="#" className="category-item__link">Accessories</a>
+                                    <a href="/#" className="category-item__link">Accessories</a>
                                 </li>
                                 <li className="category-item">
-                                    <a href="/" className="category-item__link">Sale</a>
+                                    <a href="/#" className="category-item__link">Sale</a>
                                 </li>
                                 <li className="category-item">
-                                    <a href="#" className="category-item__link">Blog</a>
+                                    <a href="/#" className="category-item__link">Blog</a>
                                 </li>
                             </ul>
                         </nav>
@@ -67,12 +68,12 @@ export default function ProductsListing() {
                                             <div className="product-item-details">
                                                 <div className="product-item-detail">
                                                     <strong className="product-item-name">
-                                                        <a href="" className="product-item-link">Tiger Ipsum Text</a>
+                                                        <a href="/#" className="product-item-link">Tiger Ipsum Text</a>
                                                     </strong>
                                                 </div>
                                                 <span className="price-box">$84.00</span>
                                                 <div className="product-item-inner">
-                                                    <a href="" className="product-item-primary">Add To Cart</a>
+                                                    <a href="/#" className="product-item-primary">Add To Cart</a>
                                                 </div>
                                             </div>
                                         </div>

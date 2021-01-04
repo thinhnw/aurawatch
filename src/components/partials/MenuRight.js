@@ -3,7 +3,6 @@ import './css/MenuRight.css';
 import ShoppingCartButton from "./ShoppingCartButton";
 import UserButton from "./UserButton";
 import SearchButton from "./SearchButton";
-import UserMenu from "./UserMenu";
 
 export default function MenuRight() {
     return (
@@ -14,7 +13,6 @@ export default function MenuRight() {
                 </li>
                 <li className="MenuRight_item">
                     <UserButton />
-                    <UserMenu />
                 </li>
                 <li className="MenuRight_item">
                     <SearchButton />

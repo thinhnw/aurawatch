@@ -8,7 +8,7 @@
 .grid{
     width: 1200px;
     max-width: 100%;
-    margin: 0px auto;
+    margin: 0 auto;
 }
 .grid__full-width{
     width: 100%;
@@ -27,12 +27,12 @@
 }
 .gird__columns-6{
     padding-left: 10px;
-    padding-right: 0px;
+    padding-right: 0;
     width:50%;
 }
 .gird__columns-3-4{
     padding-left: 10px;
-    padding-right: 0px;
+    padding-right: 0;
     width: 33.3334%;
 }
 .grid__columns-9{
@@ -76,12 +76,7 @@
     transition: right linear 0.3s;
 }
 .category-item__link:hover{
-    right: -4px;
     color: var(--black-color);
-}
-.filter{
-    padding: 0 30px;
-    display: flex;
 }
 .category__heading-option{
     margin-bottom: 18px;
@@ -162,11 +157,6 @@
     outline: none;
     width: auto;
     height: 32px;
-}
-select{
-    padding: 5px 25px 4px 10px;
-    font-size: 15px;
-    color: var(--text-color);
 }
 .ProductsListing {
     padding: 90px 0;

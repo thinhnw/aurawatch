@@ -1,3 +1,13 @@
+.UserMenu {
+    background-color: rgba(34,34,34,0.9);
+    width: 200px;
+    height: 95px;
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    padding-left: 16px;
+}
 .UserButton {
     width: 50px;
     height: 50px;
@@ -7,6 +17,18 @@
     cursor: pointer;
     background: transparent url(../../../images/sprite.png) no-repeat scroll -513px -42px;
 }
-.UserButton:hover .UserMenu {
+.UserMenu.active {
     display: block;
+}
+.UserMenu:hover {
+    background-color: rgba(34,34,34,0.9);
+}
+.UserMenu_link {
+    color: #f5f5f5;
+    text-decoration: none;
+    display: block;
+    margin: 8px 0 10px;
+}
+.UserMenu_link:hover {
+    color: #737373;
 }

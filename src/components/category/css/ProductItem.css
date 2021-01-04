@@ -34,23 +34,15 @@
     left: 25px;
     display: none;
 }
-.home-product-item__primary{
+.home-product-item__icon{
     border-radius: 50%;
     background-color: var(--black-color);
-    padding: 10px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
     margin-bottom: 5px;
 }
-.home-product-item__primary-link{
-    color: var(--white-color);
-    font-size: 14px;
-    text-align: center;
-}
-.home-product-item__favourite{
-    border-radius: 100%;
-    background-color: var(--black-color);
-    padding: 10px;
-}
-.home-product-item__favourite-link{
+.home-product-item__icon-link{
     color: var(--white-color);
     font-size: 14px;
     text-align: center;
@@ -64,10 +56,7 @@
 .home-product-item:hover .home-product-item__hover{
     display: block;
 }
-.home-product-item__primary:hover{
-    background-color: rgba(0,0,0,0.5);
-}
-.home-product-item__favourite:hover{
+.home-product-item__icon:hover{
     background-color: rgba(0,0,0,0.5);
 }
 .home-product-item:hover .ProductItem_view {
