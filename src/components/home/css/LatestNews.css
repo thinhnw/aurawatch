@@ -1,0 +1,72 @@
+.LatestNews_container {
+    width: 1200px;
+    height: 500px;
+    background: white;
+    margin: 0 auto;
+    position: relative;
+    padding: 80px 16px;
+}
+.LatestNews_title {
+    margin-bottom: 16px;
+}
+.LatestNews-prev {
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    border: none;
+    background: url(../../../images/sprite.png) no-repeat scroll -15px -388px transparent;
+    width: 25px;
+    height: 25px;
+}
+.LatestNews-next {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    border: none;
+    background: url(../../../images/sprite.png) no-repeat scroll -540px -388px transparent;
+    width: 25px;
+    height: 25px;
+}
+
+.LatestNews-next:hover {
+
+    cursor: pointer;
+    background: url(../../../images/sprite.png) no-repeat scroll -540px -436px transparent;
+}
+
+.LatestNews-prev:hover {
+
+    background: url(../../../images/sprite.png) no-repeat scroll -15px -436px transparent;
+    cursor: pointer;
+}
+
+.LatestNews_news{
+    display: inline-block;
+    width: 50%;
+    padding: 0 5px;
+    position: relative;
+}
+.LatestNews_news img {
+    display: block;
+    width: 100%;
+}
+.LatestNews_news .text-outer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 5px;
+}
+
+.LatestNews_news .text {
+    color: white;
+    height: 100%;
+    padding: 80px 50px;
+    display: none;
+}
+.LatestNews_news .text.active {
+    display: block;
+    background: rgba(0, 0, 0, 0.6);
+}
+

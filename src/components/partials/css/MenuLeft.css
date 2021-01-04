@@ -1,0 +1,10 @@
+.MenuLeft {
+    padding-top: 20px;
+    display: inline-block;
+    width: auto;
+    margin-right: 25px;
+}
+.MenuLeft_brand {
+    color: white;
+    text-decoration: none;
+}

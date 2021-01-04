@@ -1,0 +1,40 @@
+.ParallaxItem {
+    width: 100%;
+    height: 100%;
+}
+.shipping-inner {
+    position: relative;
+    height: 90px;
+}
+.shipping-inner-left::before {
+    background: transparent url(../../../images/sprite.png) no-repeat scroll -2px -597px;
+}
+.shipping-inner-middle::before {
+    background: transparent url(../../../images/sprite.png) no-repeat scroll 5px -676px;
+}
+.shipping-inner-right::before {
+    background: transparent url(../../../images/sprite.png) no-repeat scroll -1px -753px;
+}
+.shipping-inner::before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 90px;
+    height: 90px;
+}
+.subtitle {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 20px;
+    color: white;
+}
+.subtitle h2 {
+    font-size: 1.2rem;
+}
+.subtitle p {
+    color: #aaa;
+    font-size: 0.9rem;
+}

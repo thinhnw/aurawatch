@@ -1,0 +1,12 @@
+.UserMenu {
+    background-color: rgba(34,34,34,0.9);
+    width: 250px;
+    display: none;
+    position: absolute;
+    top:0;
+    right: 0;
+}
+
+.UserButton:hover .UserMenu {
+    display: block;
+}

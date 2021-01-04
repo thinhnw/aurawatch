@@ -1,0 +1,12 @@
+.Parallax_block {
+    height: 260px;
+    position: relative;
+
+    background: #000 no-repeat fixed 50% 53.8934%;
+    background-size: cover;
+}
+.shipping-outer {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 90px;
+}

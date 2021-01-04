@@ -1,0 +1,59 @@
+.ShopBySize {
+    background: url(../images/sizeby.jpeg) no-repeat center left #f5f5f5;
+    display: block;
+    height: 770px;
+    margin-bottom: 32px;
+    position: relative;
+}
+.ShopBySize_container {
+    position: absolute;
+    width: 900px;
+    max-width: 100%;
+    right: 180px;
+    top: 200px;
+}
+.ShopBySize_title .title {
+    font-size: 2rem;
+    margin-bottom: 32px;
+}
+.ShopBySize_title .dsc {
+    color: #737373;
+    margin-bottom: 50px;
+}
+.ShopBySize_size {
+    display: block;
+    width: 100%;
+    height: 80px;
+    position: relative;
+}
+.ShopBySize_size .watchImage {
+
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ShopBySize_size .smallImage {
+    background: url(../../../images/sprite.png) no-repeat scroll -10px -1588px transparent;
+}
+.ShopBySize_size .mediumImage {
+    background: url(../../../images/sprite.png) no-repeat scroll -8px -1688px transparent;
+}
+.ShopBySize_size .largeImage {
+    background: url(../../../images/sprite.png) no-repeat scroll -15px -1788px transparent;
+}
+.ShopBySize_size .xlargeImage {
+    background: url(../../../images/sprite.png) no-repeat scroll -15px -1888px transparent;
+}
+
+.ShopBySize .text {
+    display: inline-block;
+    width: 300px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 90px;
+}

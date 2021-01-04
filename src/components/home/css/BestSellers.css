@@ -1,0 +1,19 @@
+.BestSellers {
+    background: white;
+    width: 100%;
+    padding-bottom: 80px;
+}
+.BestSellers_container {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.BestSellers_title {
+    width: 100%;
+    text-align: center;
+    margin-top: 90px;
+    margin-bottom: 25px;
+}
+.BestSellers_title h2 {
+    font-weight: 300;
+}

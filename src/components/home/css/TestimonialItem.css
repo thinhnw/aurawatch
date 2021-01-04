@@ -1,0 +1,17 @@
+.TestimonialItem {
+    text-align: center;
+    padding: 50px 100px;
+}
+.TestimonialItem img {
+    border-radius: 100%;
+    margin-bottom: 16px;
+}
+.TestimonialItem p {
+    line-height: 1.5;
+    margin-bottom: 16px;
+    color: #737373;
+}
+.TestimonialItem .author {
+    color: #0c0c0d;
+    font-size: 1rem;
+}

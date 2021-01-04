@@ -1,0 +1,17 @@
+.PageTitleBanner {
+    width: 100%;
+    padding: 145px 0 60px;
+    background: #f6f6f6 url(../images/pagetitle.jpeg) no-repeat scroll;
+}
+.PageTitleBanner_title {
+    width: 1200px;
+    margin: 0 auto;
+    height: 60px;
+    background: #fff;
+}
+.PageTitleBanner_title h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 14px 16px;
+    text-transform: uppercase;
+}

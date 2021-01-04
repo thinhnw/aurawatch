@@ -1,0 +1,19 @@
+.MenuMiddleItem {
+    color: #fff;
+}
+.MenuMiddleItem_inner {
+    padding-top: 20px;
+}
+.MenuMiddleItem_name {
+    padding-left: 22px;
+    padding-right: 22px;
+    font-size: 1rem;
+    font-weight: 300;
+}
+.MenuMiddleItem_link {
+    text-decoration: none;
+    color: white;
+}
+.MenuMiddleItem_link:hover {
+    color: #ccc;
+}

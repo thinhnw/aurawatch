@@ -1,0 +1,12 @@
+.UserButton {
+    width: 50px;
+    height: 50px;
+    background: transparent url(../../../images/sprite.png) no-repeat scroll 0 -42px;
+}
+.UserButton:hover {
+    cursor: pointer;
+    background: transparent url(../../../images/sprite.png) no-repeat scroll -513px -42px;
+}
+.UserButton:hover .UserMenu {
+    display: block;
+}

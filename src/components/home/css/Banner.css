@@ -1,0 +1,62 @@
+/* Slideshow container */
+.banner__slideshow {
+    width: 100%;
+    position: relative;
+    margin: auto;
+}
+.banner__slide {
+    display: none;
+}
+/* Next & previous buttons */
+.banner__slide--prev, .banner__slide--next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white !important;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 2s linear;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade {
+    0% {opacity: .8}
+    100% {
+        opacity: 1;
+    }
+}
+
+.Banner-next {
+    position: absolute;
+    right: 0;
+    top: 300px;
+    border: none;
+    height: 100px;
+    width: 100px;
+    background: url(../../../images/sprite.png) no-repeat scroll -480px -165px transparent;
+}
+.Banner-prev {
+    position: absolute;
+    left :0;
+    top: 300px;
+    border: none;
+    height: 100px;
+    width: 100px;
+    background: url(../../../images/sprite.png) no-repeat scroll 0 -165px transparent;
+}
+.Banner-prev:hover {
+    background: url(../../../images/sprite.png) no-repeat scroll 0 -270px transparent;
+}
+.Banner-next:hover {
+    background: url(../../../images/sprite.png) no-repeat scroll -480px -270px transparent;
+}

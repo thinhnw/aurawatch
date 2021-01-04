@@ -1,0 +1,10 @@
+.MenuMiddle {
+    width: 63%;
+    display: inline-block;
+}
+.MenuMiddle_outer {
+    list-style-type: none;
+}
+.MenuMiddle_outer li {
+    float: left;
+}

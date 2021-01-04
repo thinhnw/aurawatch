@@ -1,0 +1,37 @@
+.Testimonial_container {
+    width: 1200px;
+    height: 310px;
+    background: white;
+    margin: 0 auto;
+    position: relative;
+}
+.Testimonial_container .Testimonial-prev {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    border: none;
+    background: url(../../../images/sprite.png) no-repeat scroll -15px -388px transparent;
+    width: 25px;
+    height: 25px;
+}
+.Testimonial_container .Testimonial-next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    border: none;
+    background: url(../../../images/sprite.png) no-repeat scroll -540px -388px transparent;
+    width: 25px;
+    height: 25px;
+}
+
+.Testimonial_container .Testimonial-next:hover {
+
+    cursor: pointer;
+    background: url(../../../images/sprite.png) no-repeat scroll -540px -436px transparent;
+}
+
+.Testimonial_container .Testimonial-prev:hover {
+
+    background: url(../../../images/sprite.png) no-repeat scroll -15px -436px transparent;
+    cursor: pointer;
+}

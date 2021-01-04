@@ -1,0 +1,57 @@
+.SubBannerItem {
+    color: #fff;
+    padding: 5px;
+}
+.SubBannerItem .image-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.image-wrapper .dsc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 105px;
+    padding-left: 25px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background: rgba(0, 0, 0, .3);
+}
+.image-wrapper .dsc:hover {
+    background: rgba(0, 0, 0, 0);
+}
+.dsc button {
+    padding: 8px 16px;
+    border-radius: 25px;
+    border: none;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+.dsc h2 {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+.dsc .linebreak {
+    border-bottom: 1px #555 solid;
+    width: 90px;
+    display: none;
+    margin: 14px 0;
+}
+.dsc p {
+    display: none;
+}
+
+.dsc.onMouseOver p, .dsc.onMouseOver .linebreak{
+    display: block;
+}
+
+.dsc.onMouseOver {
+    padding-top: 125px;
+}
