@@ -11,6 +11,7 @@ import ShopBySize from "./home/ShopBySize";
 import PageTitleBanner from "./partials/PageTitleBanner";
 import LogIn from "./users/LogIn";
 import SignUp from "./users/SignUp";
+import Blog from "./blog/Blog";
 import ProductDetail from "./products/ProductDetail";
 import {
     BrowserRouter as Router,
@@ -37,6 +38,9 @@ export default function App() {
                 </Route>
                 <Route path='/signup'>
                     <SignUpPage />
+                </Route>
+                <Route path='/blog'>
+                    <BlogPage />
                 </Route>
                 <Route path="/">
                     <Home />
@@ -89,6 +93,14 @@ function Product() {
         <div>
             <PageTitleBanner title="Tizzy watch ipsum"/>
             <ProductDetail />
+        </div>
+    )
+}
+function BlogPage() {
+    return (
+        <div>
+            <PageTitleBanner title="Blog"/>
+            <Blog />
         </div>
     )
 }
