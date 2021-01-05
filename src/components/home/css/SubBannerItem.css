@@ -34,6 +34,9 @@
     font-weight: 700;
     margin-bottom: 8px;
 }
+.dsc button:hover {
+    background-color: #878787;
+}
 .dsc h2 {
     font-weight: 300;
     text-transform: uppercase;
