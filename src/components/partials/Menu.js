@@ -1,5 +1,5 @@
 import React from 'react';
-import './Menu.css';
+import './css/Menu.css';
 import MenuMiddle from './MenuMiddle';
 import MenuRight from './MenuRight';
 import MenuLeft from './MenuLeft';

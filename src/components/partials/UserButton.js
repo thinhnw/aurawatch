@@ -15,7 +15,7 @@ export default function UserButton() {
     }
     return (
         <div className="UserButton" onMouseOver={handleOver}>
-            <div className={"UserMenu " + (active ? "active" : "")} onMouseOver={handleOver} onMouseOut={handleOut}>
+            <div className={"UserMenu " + (active ? "UserMenu_active" : "")} onMouseOver={handleOver} onMouseOut={handleOut}>
                 <Link to="/login" className="UserMenu_link">Log In</Link>
                 <hr/>
                 <Link to="/signup" className="UserMenu_link">Create an Account</Link>

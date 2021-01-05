@@ -1,9 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import "./Footer.css";
+import "./css/Footer.css";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 
 	root: {
 		flexGrow: 1,
@@ -51,14 +51,14 @@ export default function Footer() {
 								<p>(+91) 90-3399-1938</p>
 							</div>
 						</Grid>
-						<div className="Footer_container-break"></div>
+						<div className="Footer_container-break"> </div>
 						<Grid item xs={3}>
 							<div className="Footer_item Footer_payment">
 								<ul className="Footer_payment-icon">
-									<li className="visa"><a href="/#"></a></li>
-									<li className="master"><a href="/#"></a></li>
-									<li className="discover"><a href="/#"></a></li>
-									<li className="paypal"><a href="/#"></a></li>
+									<li className="visa"><a href="/#"> </a></li>
+									<li className="master"><a href="/#"> </a></li>
+									<li className="discover"><a href="/#"> </a></li>
+									<li className="paypal"><a href="/#"> </a></li>
 								</ul>
 							</div>
 						</Grid>
@@ -70,11 +70,11 @@ export default function Footer() {
 						<Grid item xs={3}>
 							<div className="Footer_item Footer_social">
 								<ul className="Footer_social-icon">
-									<li className="google"><a href="/#"></a></li>
-									<li className="facebook"><a href="/#"></a></li>
-									<li className="twitter"><a href="/#"></a></li>
-									<li className="linkedin"><a href="/#"></a></li>
-									<li className="rss"><a href="/#"></a></li>
+									<li className="google"><a href="/#"> </a></li>
+									<li className="facebook"><a href="/#"> </a></li>
+									<li className="twitter"><a href="/#"> </a></li>
+									<li className="linkedin"><a href="/#"> </a></li>
+									<li className="rss"><a href="/#"> </a></li>
 								</ul>
 							</div>
 						</Grid>

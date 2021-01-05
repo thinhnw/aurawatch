@@ -17,7 +17,7 @@
     cursor: pointer;
     background: transparent url(../../../images/sprite.png) no-repeat scroll -513px -42px;
 }
-.UserMenu.active {
+.UserMenu_active {
     display: block;
 }
 .UserMenu:hover {
