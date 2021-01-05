@@ -1,0 +1,16 @@
+.Menu {
+    width: 100%;
+    height: 76px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    transition: 0.5s;
+}
+.Menu.scrollbg {
+    background: #000;
+}
+.Menu_container {
+    width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+}
