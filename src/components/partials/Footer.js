@@ -23,10 +23,10 @@ export default function Footer() {
 							<div className="Footer_item Footer_info">
 								<h3>INFORMATION</h3>
 								<ul>
-									<li>About Us</li>
-									<li>Delivery Information</li>
-									<li>Privacy Policy</li>
-									<li>Terms & Conditions</li>
+									<li><a href="/#">About Uss</a></li>
+									<li><a href="/#">Delivery Information</a></li>
+									<li><a href="/#">Privacy Policy</a></li>
+									<li><a href="/#">Terms & Conditions</a></li>
 								</ul>
 							</div>
 						</Grid>

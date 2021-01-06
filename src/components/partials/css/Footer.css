@@ -17,8 +17,13 @@
 .Footer_info ul {
     list-style-position: inside;
 }
-.Footer_contact p, .Footer_info li {
+.Footer_contact p, .Footer_info li a {
     margin-bottom: 16px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+.Footer_info li :hover{
+    color: var(--white-color);
 }
 .Footer_container {
     width: 80%;

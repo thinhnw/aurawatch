@@ -13,6 +13,7 @@
     position: absolute;
     top: 80px;
     right: 30px;
+    outline: none;
     border: none;
     background: url(../../../images/sprite.png) no-repeat scroll -15px -388px transparent;
     width: 25px;
@@ -22,6 +23,7 @@
     position: absolute;
     top: 80px;
     right: 0;
+    outline: none;
     border: none;
     background: url(../../../images/sprite.png) no-repeat scroll -540px -388px transparent;
     width: 25px;
