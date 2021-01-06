@@ -9,7 +9,7 @@
 
 .home-product-item__img{
     width: 100%;
-
+    cursor: pointer;
 }
 .home-product-item__star{
     color: #C7C7C7;
