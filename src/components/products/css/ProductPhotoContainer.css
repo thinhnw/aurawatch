@@ -1,0 +1,25 @@
+.ProductPhotoContainer_main-inner {
+    width: 95%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+.ProductPhotoContainer_main-inner img {
+    width: 100%;
+    display: block;
+}
+.ProductPhotoContainer_sub {
+    width: 95%;
+    margin: 16px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.ProductPhotoContainer_sub-item {
+    width: 22%;
+    display: inline-block;
+    border: 1px solid #ddd;
+}
+.ProductPhotoContainer_sub-item img {
+    width: 100%;
+    display: block;
+}

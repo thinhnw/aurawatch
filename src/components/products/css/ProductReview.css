@@ -1,0 +1,39 @@
+.ProductReview  {
+    position: relative;
+    top: -240px;
+    margin-bottom: -150px;
+    text-align: center;
+}
+.ProductReview_title {
+    font-weight: 300;
+}
+.ProductReview_star {
+    margin-bottom: 16px;
+}
+.ProductReview_item {
+    height: 250px;
+    padding: 25px;
+    background: white;
+    text-align: left;
+    border: 1px solid #ddd;
+    position: relative;
+}
+.ProductReview_author {
+    position: absolute;
+    bottom: 16px;
+    display: flex;
+    height: 80px;
+}
+.ProductReview_author p {
+    padding-top: 12px;
+    padding-left: 16px;
+}
+.ProductReview_avatar {
+    border-radius: 100%;
+    overflow: hidden;
+    width: 80px;
+}
+.ProductReview_avatar img {
+    display: block;
+    width: 100%;
+}
