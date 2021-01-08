@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './css/BestSellers.css';
 import ProductItem from '../category/ProductItem';
 import img1 from './images/news_1.jpeg';
@@ -14,9 +14,39 @@ const useStyles = makeStyles((theme) => ({
 export default function BestSellers() {
 
     const classes = useStyles();
-    const menBestSellers = [ img1, img1, img1, img1 ];
-    const womenBestSellers = [ img1, img1, img1, img1 ];
 
+    const [ error, setError ] = useState(null);
+    const [ isLoaded, setIsLoaded ] = useState(false);
+    const [ men, setMen ]= useState([]);
+    const [ women, setWomen ] = useState([]);
+
+    useEffect(() => {
+        fetch("https://aurawatch-server.herokuapp.com/watches")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setIsLoaded(true);
+                    result.forEach((x) => {
+                        if (x.gender === "men" && men.length < 4) {
+                            setMen( men => [ ...men, x ]);
+                        }
+                        if (x.gender === "women" && women.length < 4) {
+                            setWomen( women => [ ...women, x ]);
+                        }
+                    })
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error)
+                }
+            )
+    }, [])
+
+    if (error) {
+        return <div>Error: {error.message}</div>
+    } else if (!isLoaded) {
+        return <div>Loading...</div>
+    } else
     return (
         <div className="BestSellers">
             <div className="BestSellers_container">
@@ -26,10 +56,10 @@ export default function BestSellers() {
                     </div>
                     <Grid container spacing={3}>
                         {
-                            menBestSellers.map(img=> {
+                            men.map( (x, i) => {
                                 return (
-                                    <Grid item xs={3}>
-                                        <ProductItem />
+                                    <Grid key={i} item xs={3}>
+                                        <ProductItem prodid={x.id} />
                                     </Grid>
                                 )
                             })
@@ -40,7 +70,7 @@ export default function BestSellers() {
                     </div>
                     <Grid container spacing={3}>
                         {
-                            womenBestSellers.map(img=> {
+                            women.map(img=> {
                                 return (
                                     <Grid item xs={3}>
                                         <ProductItem />

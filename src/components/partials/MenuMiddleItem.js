@@ -1,9 +1,6 @@
 import React from 'react';
 import './css/MenuMiddleItem.css';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link
 } from "react-router-dom";
 export default function MenuMiddleItem(props) {
@@ -13,7 +10,7 @@ export default function MenuMiddleItem(props) {
             <div className="MenuMiddleItem_inner">
                 { props.name !== "COLLECTIONS" ? <span>/</span> : "" }
                 <span className="MenuMiddleItem_name">
-                    <Link to={props.route} class="MenuMiddleItem_link">{props.name}</Link>
+                    <Link to={props.route} className="MenuMiddleItem_link">{props.name}</Link>
                 </span>
             </div>
         </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './css/ProductsListing.css';
 import img1 from './images/pro_3_1_3_1.jpeg';
 import ProductItem from "./ProductItem";
@@ -17,13 +17,32 @@ const useStyles = makeStyles((theme) => ({
 export default function ProductsListing() {
 
     const classes = useStyles();
-    const [page, setPage] = React.useState(1);
+    const [ page, setPage] = useState(1);
+    const [ items, setItems ] = useState([]);
+    const [ error, setError ] = useState(null);
+    const [ isLoaded, setIsLoaded ] = useState(false);
     const handleChange = (event, value) => {
         setPage(value);
     };
-    const items = [];
-    for (let i = 0; i < 12; ++i) items.push({});
 
+    useEffect(() => {
+        fetch("https://aurawatch-server.herokuapp.com/watches")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setIsLoaded(true);
+                    setItems(result);
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
+    }, []);
+
+    if (error) { return <div>Error: {error.message}</div>}
+    else if (!isLoaded) { return <div>Loading...</div>}
+    else
     return (
         <div className="ProductsListing">
             <div className="grid">
@@ -60,7 +79,7 @@ export default function ProductsListing() {
                                 <ul className="product-items">
                                     <li className="product-item">
                                         <div className="product-item-info">
-                                            <a href="/" className="product-item-photo">
+                                            <a href="/#" className="product-item-photo">
                                                 <img
                                                     src="https://templatetrend.in/magento/MAG600/pub/media/catalog/product/cache/29/thumbnail/80x96/beff4985b56e3afdbeabfc89641a4582/p/r/pro_8_4.jpg"
                                                     alt="img1" className="photo-img" width="80" height="90"/>
@@ -80,7 +99,7 @@ export default function ProductsListing() {
                                     </li>
                                     <li className="product-item">
                                         <div className="product-item-info">
-                                            <a href="/" className="product-item-photo">
+                                            <a href="/#" className="product-item-photo">
                                                 <img
                                                     src="https://templatetrend.in/magento/MAG600/pub/media/catalog/product/cache/29/thumbnail/80x96/beff4985b56e3afdbeabfc89641a4582/p/r/pro_9_1_1_3.jpg"
                                                     alt="img1" className="photo-img" width="80" height="90"/>
@@ -88,12 +107,12 @@ export default function ProductsListing() {
                                             <div className="product-item-details">
                                                 <div className="product-item-detail">
                                                     <strong className="product-item-name">
-                                                        <a href="" className="product-item-link">Tizzy Watch Ipsum</a>
+                                                        <a href="/#" className="product-item-link">Tizzy Watch Ipsum</a>
                                                     </strong>
                                                 </div>
                                                 <span className="price-box">$129.00</span>
                                                 <div className="product-item-inner">
-                                                    <a href="" className="product-item-primary">Add To Cart</a>
+                                                    <a href="/#" className="product-item-primary">Add To Cart</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -108,12 +127,12 @@ export default function ProductsListing() {
                                             <div className="product-item-details">
                                                 <div className="product-item-detail">
                                                     <strong className="product-item-name">
-                                                        <a href="" className="product-item-link">Tizzy Watch Ipsum</a>
+                                                        <a href="/#" className="product-item-link">Tizzy Watch Ipsum</a>
                                                     </strong>
                                                 </div>
                                                 <span className="price-box">$239.00</span>
                                                 <div className="product-item-inner">
-                                                    <a href="" className="product-item-primary">Add To Cart</a>
+                                                    <a href="/#" className="product-item-primary">Add To Cart</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -126,20 +145,22 @@ export default function ProductsListing() {
                         <div className="toolbar-sorter sorter">
                             <label className="sorter-label" htmlFor="sorter">Sort By</label>
                             <select id="sorter" data-role="sorter" className="sorter-options">
-                                <option value="position" selected="selected">Position</option>
-                                <option value="name">Product Name</option>
-                                <option value="price">Price</option>
+                                <option value="position" defaultValue="selected">A-Z</option>
+                                <option value="name">Increasing by Price</option>
+                                <option value="price">Decreasing by Price</option>
                             </select>
                         </div>
                         <div className="home-product">
                             <div className="grid__row">
                                 {
                                     items.map((x, i) => {
-                                        return (
-                                            <div className={"gird__columns-3-4 " + (i + 1 <= (page - 1) * 9 || i + 1 > page * 9 ? "page-hidden"  : "")}>
-                                                <ProductItem />
-                                            </div>
-                                        )
+                                        console.log(x.id);
+                                        if (i + 1 <= (page - 1) * 9 || i + 1 > page * 9) {
+                                            return <div></div>;
+                                        }
+                                        return <div key={i} className={"gird__columns-3-4 "}>
+                                            <ProductItem prodid={x.id}/>
+                                        </div>
                                     })
                                 }
                             </div>

@@ -1,11 +1,11 @@
 .ProductDetail {
     width: 100%;
-    padding-top: 80px;
 }
 .ProductDetail_container {
     width: 1200px;
     max-width: 100%;
     margin: 0 auto;
+    padding-top: 80px;
 }
 .ProductDetail_review {
     width: 100%;

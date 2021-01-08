@@ -30,8 +30,8 @@ export default function App() {
                 <Route path="/category">
                     <Category />
                 </Route>
-                <Route path='/detail'>
-                    <Product />
+                <Route path='/watches'>
+                    <ProductDetail />
                 </Route>
                 <Route path="/login">
                     <LogInPage />
@@ -85,14 +85,6 @@ function SignUpPage() {
         <div>
             <PageTitleBanner title="CREATE NEW ACCOUNT"/>
             <SignUp />
-        </div>
-    )
-}
-function Product() {
-    return (
-        <div>
-            <PageTitleBanner title="Tizzy watch ipsum"/>
-            <ProductDetail />
         </div>
     )
 }

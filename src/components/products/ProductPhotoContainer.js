@@ -23,7 +23,7 @@ export default function ProductPhotoContainer() {
                 {
                     imgs.map((img, i) => {
                         return (
-                            <div className="ProductPhotoContainer_sub-item">
+                            <div key={i} className="ProductPhotoContainer_sub-item">
                                 <img src={img} alt=""/>
                             </div>
                         )
