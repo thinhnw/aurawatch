@@ -31,7 +31,6 @@ export default function ProductItem(props) {
                 (result) => {
                     setIsLoaded(true);
                     setItem(result);
-                    console.log(result)
                 },
                 (error) => {
                     setIsLoaded(true);

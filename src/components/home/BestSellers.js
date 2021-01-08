@@ -70,10 +70,10 @@ export default function BestSellers() {
                     </div>
                     <Grid container spacing={3}>
                         {
-                            women.map(img=> {
+                            women.map((x, i)=> {
                                 return (
-                                    <Grid item xs={3}>
-                                        <ProductItem />
+                                    <Grid key={i} item xs={3}>
+                                        <ProductItem prodid={x.id}/>
                                     </Grid>
                                 )
                             })

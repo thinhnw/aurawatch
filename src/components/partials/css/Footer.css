@@ -4,6 +4,8 @@
     height: 455px;
     background: black;
     color: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 .Footer p, .Footer li {
     line-height: 1.75;
