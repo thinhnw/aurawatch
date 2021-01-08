@@ -7,10 +7,19 @@ import img4 from './images/5_2.jpg';
 import img5 from './images/pro_5_1_3_1_1.jpeg';
 import img6 from './images/pro_8_4.jpg';
 import img7 from './images/pro_9_1_1_3.jpg';
-export default function Blog() {
+import PageTitleBanner from "../partials/PageTitleBanner";
+export default function X() {
+    return(
+        <div>
+
+        </div>
+    );
+}
+function a() {
 
     return (
         <div className="Blog">
+            <PageTitleBanner title={"Blog"}/>
             <div className="grid">
                 <div className="grid__row">
                     <div className="grid__columns-9">

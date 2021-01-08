@@ -2,14 +2,17 @@ import React from 'react';
 import './css/ProductInfo.css';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
-export default function ProductInfo() {
+export default function ProductInfo(props) {
 
     return (
         <div className="ProductInfo">
-            <p className="ProductInfo_collection">WEIMAR</p>
-            <p className="ProductInfo_name">PAUL</p>
-            <p className="ProductInfo_price">$100.00</p>
-            <p className="ProductInfo_status">Status: <span>In stock</span></p>
+            <p className="ProductInfo_collection">{props.coll}</p>
+            <p className="ProductInfo_name">{props.name}</p>
+            <p className="ProductInfo_price">$ <span>{props.price.toFixed(2)}</span></p>
+            <p className="ProductInfo_status">
+                Status:
+                <span style={ props.qty ? { color: "blue" } : { color: "red" } }> {props.qty ? "In Stock" : "Out of Stock"}</span>
+            </p>
             <form action="">
                 <div className="ProductInfo_form-control">
                     <label htmlFor="qty">QTY</label>

@@ -2,12 +2,14 @@ import React, {useState} from 'react';
 import './css/ProductPhotoContainer.css';
 import img1 from './images/pro_1_1.jpeg';
 
-export default function ProductPhotoContainer() {
+export default function ProductPhotoContainer(props) {
 
     const imgs = [];
+    const name = props.name;
     for (let i = 1; i <= 4; ++i) {
-        let path = './images/pro_1_' + i + '.jpeg' ;
+        let path = `/images/${name.toLowerCase()}_${i}.jpeg`;
         imgs.push(path) ;
+        console.log(path);
     }
 
     const [ index, setIndex ] = useState(0);
@@ -23,7 +25,7 @@ export default function ProductPhotoContainer() {
                 {
                     imgs.map((img, i) => {
                         return (
-                            <div className="ProductPhotoContainer_sub-item">
+                            <div key={i} className="ProductPhotoContainer_sub-item">
                                 <img src={img} alt=""/>
                             </div>
                         )

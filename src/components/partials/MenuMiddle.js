@@ -9,8 +9,8 @@ export default function MenuMiddle() {
                <li><MenuMiddleItem route="/category" name="COLLECTIONS"/></li>
                 <li><MenuMiddleItem route="/category/men" name="FOR HIM"/></li>
                 <li><MenuMiddleItem route="/category/women" name="FOR HER"/></li>
-                <li><MenuMiddleItem route="/category" name="ACCESSORIES"/></li>
-                <li><MenuMiddleItem route="/sale" name="SALE"/></li>
+                <li><MenuMiddleItem route="/category/accessories" name="ACCESSORIES"/></li>
+                <li><MenuMiddleItem route="/category:q/sale" name="SALE"/></li>
                 <li><MenuMiddleItem route="/blog" name="BLOG"/></li>
             </ul>
         </div>
