@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 import {
     Route,
-    Link,
     useHistory,
     useParams
 } from 'react-router-dom';
@@ -31,39 +30,44 @@ export default function ProductsListing() {
     const handleChange = (event, value) => {
         setPage(value);
         let path = window.location.pathname.split('/');
-        let sub = path[1] === "category" ? "" : path[1];
-        history.push("/category" + sub + "/pages/" + value);
+        let sub = (path[2] !== "pages") ? path[2] : "";
+        history.push("/category/" + sub + "/pages/" + value);
     };
 
     useEffect(() => {
 
-        fetchAPI();
-    }, []);
-
-    const fetchAPI = () => {
         fetch("https://aurawatch-server.herokuapp.com/watches")
             .then(res => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
-                    result.forEach(x => {
-                        setItems( items => [ ...items, x ]);
-                    })
+                    setItems(items => [ ...items, ...result ]);
                 },
                 (error) => {
                     setIsLoaded(true);
                     setError(error);
                 }
             )
-    }
+    }, []);
 
     function MainComp() {
 
-        let { num = 1 } = useParams();
+        let { num = 1, coll = "" } = useParams();
+        let displayItems = items;
+
+        if (coll === "") {}
+        else if (coll === "men") { displayItems = items.filter(x => x.gender === "men") }
+        else if (coll === "women") { displayItems = items.filter(x => x.gender === "women") }
+        else {
+            displayItems = items.filter(x => x.coll.toLowerCase() === coll);
+        }
+
+        displayItems = displayItems.slice((num - 1) * 9, (num * 9) > items.length ? items.length : num * 9);
+        console.log(displayItems, coll)
         return (
             <div className={"grid__row"}>
                 {
-                    items.slice((num - 1) * 9, (num * 9) > items.length ? items.length : num * 9).map((x, i) => {
+                    displayItems.map((x, i) => {
                         return <div key={i} className={"gird__columns-3-4 "}>
                             <ProductItem prodid={x.id}/>
                         </div>
@@ -123,7 +127,8 @@ export default function ProductsListing() {
                             </select>
                         </div>
                         <div className="home-product">
-                            <Route exact path={["/category", "/category/pages/:num"]} component={MainComp}/>
+                            <Route exact path={["/category", "/category/pages/:num"]} component={MainComp} />
+                            <Route exact path={["/category/:coll", "/category/:coll/pages/:num"]} component={MainComp} />
                             <div className="grid__row">
                                 <div className={classes.root}>
                                     <Pagination count={2} page={page} onChange={handleChange} />
