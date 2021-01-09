@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import './css/ProductsListing.css';
-import img1 from './images/pro_3_1_3_1.jpeg';
 import ProductItem from "./ProductItem";
 import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
@@ -26,19 +25,26 @@ export default function ProductsListing() {
     };
 
     useEffect(() => {
+
+        fetchAPI();
+    }, []);
+
+    const fetchAPI = () => {
         fetch("https://aurawatch-server.herokuapp.com/watches")
             .then(res => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
-                    setItems(result);
+                    result.forEach(x => {
+                        setItems( items => [ ...items, x ]);
+                    })
                 },
                 (error) => {
                     setIsLoaded(true);
                     setError(error);
                 }
             )
-    }, []);
+    }
 
     if (error) { return <div>Error: {error.message}</div>}
     else if (!isLoaded) { return <div>Loading...</div>}
@@ -77,66 +83,30 @@ export default function ProductsListing() {
                             <div className="category__heading category__heading-compare">NEW PRODUCTS</div>
                             <div className="block-content">
                                 <ul className="product-items">
-                                    <li className="product-item">
-                                        <div className="product-item-info">
-                                            <a href="/#" className="product-item-photo">
-                                                <img
-                                                    src="https://templatetrend.in/magento/MAG600/pub/media/catalog/product/cache/29/thumbnail/80x96/beff4985b56e3afdbeabfc89641a4582/p/r/pro_8_4.jpg"
-                                                    alt="img1" className="photo-img" width="80" height="90"/>
-                                            </a>
-                                            <div className="product-item-details">
-                                                <div className="product-item-detail">
-                                                    <strong className="product-item-name">
-                                                        <a href="/#" className="product-item-link">Tiger Ipsum Text</a>
-                                                    </strong>
+                                    {
+                                        items.slice(0, 3).map((x, i) => {
+                                            return <li className="product-item" key={i}>
+                                                <div className="product-item-info">
+                                                    <a href="/#" className="product-item-photo">
+                                                        <img
+                                                            src={`/images/${x.name.toLowerCase()}_1.jpeg`}
+                                                            alt="img1" className="photo-img" width="80" height="90"/>
+                                                    </a>
+                                                    <div className="product-item-details">
+                                                        <div className="product-item-detail">
+                                                            <strong className="product-item-name">
+                                                                <a href="/#" className="product-item-link">{x.coll + " " +x.name}</a>
+                                                            </strong>
+                                                        </div>
+                                                        <span className="price-box">${x.price.toFixed(2)}</span>
+                                                        <div className="product-item-inner">
+                                                            <a href="/#" className="product-item-primary">Add To Cart</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <span className="price-box">$84.00</span>
-                                                <div className="product-item-inner">
-                                                    <a href="/#" className="product-item-primary">Add To Cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="product-item">
-                                        <div className="product-item-info">
-                                            <a href="/#" className="product-item-photo">
-                                                <img
-                                                    src="https://templatetrend.in/magento/MAG600/pub/media/catalog/product/cache/29/thumbnail/80x96/beff4985b56e3afdbeabfc89641a4582/p/r/pro_9_1_1_3.jpg"
-                                                    alt="img1" className="photo-img" width="80" height="90"/>
-                                            </a>
-                                            <div className="product-item-details">
-                                                <div className="product-item-detail">
-                                                    <strong className="product-item-name">
-                                                        <a href="/#" className="product-item-link">Tizzy Watch Ipsum</a>
-                                                    </strong>
-                                                </div>
-                                                <span className="price-box">$129.00</span>
-                                                <div className="product-item-inner">
-                                                    <a href="/#" className="product-item-primary">Add To Cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="product-item">
-                                        <div className="product-item-info">
-                                            <a href="/" className="product-item-photo">
-                                                <img
-                                                    src={img1}
-                                                    alt="img1" className="photo-img" width="80" height="90"/>
-                                            </a>
-                                            <div className="product-item-details">
-                                                <div className="product-item-detail">
-                                                    <strong className="product-item-name">
-                                                        <a href="/#" className="product-item-link">Tizzy Watch Ipsum</a>
-                                                    </strong>
-                                                </div>
-                                                <span className="price-box">$239.00</span>
-                                                <div className="product-item-inner">
-                                                    <a href="/#" className="product-item-primary">Add To Cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                            </li>
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </nav>
@@ -156,7 +126,7 @@ export default function ProductsListing() {
                                     items.map((x, i) => {
                                         console.log(x.id);
                                         if (i + 1 <= (page - 1) * 9 || i + 1 > page * 9) {
-                                            return <div></div>;
+                                            return <div> </div>;
                                         }
                                         return <div key={i} className={"gird__columns-3-4 "}>
                                             <ProductItem prodid={x.id}/>
