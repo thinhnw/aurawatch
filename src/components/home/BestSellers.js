@@ -26,12 +26,15 @@ export default function BestSellers() {
             .then(
                 (result) => {
                     setIsLoaded(true);
-                    result.forEach((x) => {
-                        if (x.gender === "men" && men.length < 4) {
-                            setMen( men => [ ...men, x ]);
-                        }
-                        if (x.gender === "women" && women.length < 4) {
-                            setWomen( women => [ ...women, x ]);
+                    let cntMen = 0;
+                    let cntWomen = 0;
+                    result.forEach( x => {
+                        if (x.gender === "men" && cntMen < 4) {
+                            setMen(men => [ ...men, x ]);
+                            cntMen++;
+                        } else if (x.gender === "women" && cntWomen < 4) {
+                            setWomen(women => [ ...women, x ]);
+                            cntWomen++;
                         }
                     })
                 },
