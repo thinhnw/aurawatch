@@ -66,9 +66,9 @@ export default function ShopBySize() {
                     {
                         sizes.map(( size, i ) => {
                            return (
-                               <Grid item xs={12} md={6} className={ getBorder(i) }>
+                               <Grid item xs={12} md={6} className={ getBorder(i) } key={i}>
                                    <div className="ShopBySize_size">
-                                       <div className={"watchImage " + size.img}></div>
+                                       <div className={"watchImage " + size.img}> </div>
                                        <div className="text">
                                            <h4>{size.name}</h4>
                                            <p>{size.dsc}</p>

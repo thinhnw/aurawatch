@@ -1,13 +1,6 @@
 import React from 'react';
 import Menu from './partials/Menu';
 import Footer from './partials/Footer';
-import Banner from './home/Banner';
-import SubBanner from './home/SubBanner';
-import Parallax from './home/Parallax';
-import BestSellers from "./home/BestSellers";
-import Testimonial from "./home/Testimonial";
-import LatestNews from './home/LastestNews';
-import ShopBySize from "./home/ShopBySize";
 import PageTitleBanner from "./partials/PageTitleBanner";
 import LogIn from "./users/LogIn";
 import SignUp from "./users/SignUp";
@@ -19,88 +12,25 @@ import {
     Route,
 } from "react-router-dom";
 import ProductsListing from "./category/ProductsListing";
+import Home from "./home/Home";
+import Category from "./category/Category";
 
 export default function App() {
 
+
     return (
-    <Router>
-        <Menu />
-        <div>
+        <Router>
+            <Menu />
             <Switch>
-                <Route path="/category">
-                    <Category />
-                </Route>
-                <Route path='/detail'>
-                    <Product />
-                </Route>
-                <Route path="/login">
-                    <LogInPage />
-                </Route>
-                <Route path='/signup'>
-                    <SignUpPage />
-                </Route>
-                <Route path='/blog'>
-                    <BlogPage />
-                </Route>
-                <Route path="/">
-                    <Home />
-                </Route>
+                <Route exact path="/category" component={Category} />
+                <Route path='/watches' component={ProductDetail}/>
+                <Route exact path="/login" component={LogIn}/>
+                <Route exact path='/signup' component={SignUp} />
+                <Route exact path='/blog' component={Blog} />
+                <Route exact path="/" component={Home}/>
+                <Route component={Home}/>
             </Switch>
-        </div>
-        <Footer />
-    </Router>
+            <Footer />
+        </Router>
     );
-}
-function Home() {
-    return (
-        <div>
-            <Banner />
-            <SubBanner />
-            <BestSellers />
-            <Parallax />
-            <ShopBySize />
-            <Testimonial />
-            <LatestNews />
-        </div>
-    )
-}
-function Category() {
-    return (
-        <div>
-            <PageTitleBanner title="Collections"/>
-            <ProductsListing />
-        </div>
-    )
-}
-function LogInPage() {
-    return (
-        <div>
-            <PageTitleBanner title="Customer Login" />
-            <LogIn/>
-        </div>
-    )
-}
-function SignUpPage() {
-    return (
-        <div>
-            <PageTitleBanner title="CREATE NEW ACCOUNT"/>
-            <SignUp />
-        </div>
-    )
-}
-function Product() {
-    return (
-        <div>
-            <PageTitleBanner title="Tizzy watch ipsum"/>
-            <ProductDetail />
-        </div>
-    )
-}
-function BlogPage() {
-    return (
-        <div>
-            <PageTitleBanner title="Blog"/>
-            <Blog />
-        </div>
-    )
 }

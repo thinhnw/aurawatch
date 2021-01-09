@@ -3,6 +3,7 @@ import './css/Users.css';
 import {Link} from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import PageTitleBanner from "../partials/PageTitleBanner";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -13,6 +14,7 @@ export default function LogIn() {
     const classes = useStyles();
     return (
         <div className="Users">
+            <PageTitleBanner title={"Log In"}/>
             <div className="Users_inner">
                 <div className={classes.root}>
                     <Grid container spacing={3}>

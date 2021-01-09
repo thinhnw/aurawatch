@@ -1,11 +1,11 @@
 .Users {
     width: 100%;
-    height: 500px;
     background: #fff;
 }
 .Users_inner {
     width: 1200px;
     margin: 0 auto;
+    height: 500px;
     display: flex;
 }
 .Users_left-container {
