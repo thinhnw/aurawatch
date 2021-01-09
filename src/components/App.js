@@ -22,7 +22,7 @@ export default function App() {
         <Router>
             <Menu />
             <Switch>
-                <Route exact path="/category" component={Category} />
+                <Route path="/category" component={Category} />
                 <Route path='/watches' component={ProductDetail}/>
                 <Route exact path="/login" component={LogIn}/>
                 <Route exact path='/signup' component={SignUp} />

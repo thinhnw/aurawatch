@@ -164,3 +164,15 @@
 .ProductsListing .page-hidden {
     display: none;
 }
+.collection__list {
+    list-style-position: inside ;
+    list-style-type: none;
+    margin-left: 36px;
+}
+.collection__list {
+    line-height: 1.5;
+}
+.collection__item_link {
+    text-decoration: none;
+    color: #737373;
+}

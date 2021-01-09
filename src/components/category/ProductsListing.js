@@ -3,6 +3,13 @@ import './css/ProductsListing.css';
 import ProductItem from "./ProductItem";
 import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
+import {
+    Route,
+    Link,
+    useHistory,
+    useParams
+} from 'react-router-dom';
+import CategoryNav from "./CategoryNav";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,12 +23,16 @@ const useStyles = makeStyles((theme) => ({
 export default function ProductsListing() {
 
     const classes = useStyles();
+    const history = useHistory();
     const [ page, setPage] = useState(1);
     const [ items, setItems ] = useState([]);
     const [ error, setError ] = useState(null);
     const [ isLoaded, setIsLoaded ] = useState(false);
     const handleChange = (event, value) => {
         setPage(value);
+        let path = window.location.pathname.split('/');
+        let sub = path[1] === "category" ? "" : path[1];
+        history.push("/category" + sub + "/pages/" + value);
     };
 
     useEffect(() => {
@@ -46,39 +57,30 @@ export default function ProductsListing() {
             )
     }
 
+    function MainComp() {
+
+        let { num = 1 } = useParams();
+        return (
+            <div className={"grid__row"}>
+                {
+                    items.slice((num - 1) * 9, (num * 9) > items.length ? items.length : num * 9).map((x, i) => {
+                        return <div key={i} className={"gird__columns-3-4 "}>
+                            <ProductItem prodid={x.id}/>
+                        </div>
+                    })
+                }
+            </div>
+        )
+    }
     if (error) { return <div>Error: {error.message}</div>}
     else if (!isLoaded) { return <div>Loading...</div>}
     else
-    return (
-        <div className="ProductsListing">
-            <div className="grid">
-                <div className="grid__row">
+        return (
+            <div className="ProductsListing">
+                <div className="grid">
+                    <div className="grid__row">
                     <div className="grid__columns-3">
-                        <nav className="category">
-                            <h3 className="category__heading">CATEGORIES</h3>
-                            <ul className="category-list">
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">
-                                        <span className="ProductsListing_collections">Collections</span>
-                                    </a>
-                                </li>
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">For Him</a>
-                                </li>
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">For Her</a>
-                                </li>
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">Accessories</a>
-                                </li>
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">Sale</a>
-                                </li>
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">Blog</a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <CategoryNav />
                         <nav className="category">
                             <div className="category__heading category__heading-compare">NEW PRODUCTS</div>
                             <div className="block-content">
@@ -121,19 +123,7 @@ export default function ProductsListing() {
                             </select>
                         </div>
                         <div className="home-product">
-                            <div className="grid__row">
-                                {
-                                    items.map((x, i) => {
-                                        console.log(x.id);
-                                        if (i + 1 <= (page - 1) * 9 || i + 1 > page * 9) {
-                                            return <div> </div>;
-                                        }
-                                        return <div key={i} className={"gird__columns-3-4 "}>
-                                            <ProductItem prodid={x.id}/>
-                                        </div>
-                                    })
-                                }
-                            </div>
+                            <Route exact path={["/category", "/category/pages/:num"]} component={MainComp}/>
                             <div className="grid__row">
                                 <div className={classes.root}>
                                     <Pagination count={2} page={page} onChange={handleChange} />
