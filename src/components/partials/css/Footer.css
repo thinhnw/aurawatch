@@ -55,6 +55,7 @@
 .Footer_subscription input {
     border-radius: 26px;
     border: none;
+    outline: none;
     padding: 16px;
 }
 .Footer_contact {
