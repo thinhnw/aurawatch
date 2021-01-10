@@ -6,7 +6,8 @@ import Pagination from '@material-ui/lab/Pagination';
 import {
     Route,
     useHistory,
-    useParams
+    useParams,
+    useLocation
 } from 'react-router-dom';
 import CategoryNav from "./CategoryNav";
 
@@ -27,15 +28,23 @@ export default function ProductsListing() {
     const [ items, setItems ] = useState([]);
     const [ error, setError ] = useState(null);
     const [ isLoaded, setIsLoaded ] = useState(false);
+
     const handleChange = (event, value) => {
         setPage(value);
-        let path = window.location.pathname.split('/');
-        let sub = (path[2] !== "pages") ? path[2] : "";
-        history.push("/category/" + sub + "/pages/" + value);
+        console.log('page', value);
+
+        let path = window.location.pathname.indexOf("page");
+        if (path === -1) history.push(window.location.pathname + "?page=" + value);
+        else {
+            path = window.location.pathname;
+            path.slice(0, path.length - 1);
+            history.push(path + value);
+        }
     };
 
     useEffect(() => {
 
+        setItems([]);
         fetch("https://aurawatch-server.herokuapp.com/watches")
             .then(res => res.json())
             .then(
@@ -48,11 +57,17 @@ export default function ProductsListing() {
                     setError(error);
                 }
             )
+        return function cleanup() {
+            setPage(1);
+        }
     }, []);
 
     function MainComp() {
 
-        let { num = 1, coll = "" } = useParams();
+        let { coll = "" } = useParams();
+        const search = useLocation().search;
+        const num = parseInt(new URLSearchParams(search).get('page')) || 1;
+        setPage(num);
         let displayItems = items;
 
         if (coll === "") {}
@@ -62,12 +77,12 @@ export default function ProductsListing() {
             displayItems = items.filter(x => x.coll.toLowerCase() === coll);
         }
 
-        displayItems = displayItems.slice((num - 1) * 9, (num * 9) > items.length ? items.length : num * 9);
-        console.log(displayItems, coll)
+        let first = (page - 1) * 9;
+        let last = (page * 9) > displayItems.length ? displayItems.length : page * 9;
         return (
             <div className={"grid__row"}>
                 {
-                    displayItems.map((x, i) => {
+                    displayItems.slice(first, last).map((x, i) => {
                         return <div key={i} className={"gird__columns-3-4 "}>
                             <ProductItem prodid={x.id}/>
                         </div>
@@ -122,19 +137,24 @@ export default function ProductsListing() {
                             <label className="sorter-label" htmlFor="sorter">Sort By</label>
                             <select id="sorter" data-role="sorter" className="sorter-options">
                                 <option value="position" defaultValue="selected">A-Z</option>
-                                <option value="name">Increasing by Price</option>
+                                <option value="name" >Increasing by Price</option>
                                 <option value="price">Decreasing by Price</option>
                             </select>
                         </div>
+
                         <div className="home-product">
-                            <Route exact path={["/category", "/category/pages/:num"]} component={MainComp} />
-                            <Route exact path={["/category/:coll", "/category/:coll/pages/:num"]} component={MainComp} />
+
+                            <Route exact path={["/category",
+                                "/category?page=num",
+                                "/category/:coll",
+                                "/category/:coll?page=num"]} component={MainComp} />
                             <div className="grid__row">
                                 <div className={classes.root}>
                                     <Pagination count={2} page={page} onChange={handleChange} />
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

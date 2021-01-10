@@ -1,7 +1,6 @@
 import React from 'react';
 import Menu from './partials/Menu';
 import Footer from './partials/Footer';
-import PageTitleBanner from "./partials/PageTitleBanner";
 import LogIn from "./users/LogIn";
 import SignUp from "./users/SignUp";
 import Blog from "./blog/Blog";
@@ -11,12 +10,10 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
-import ProductsListing from "./category/ProductsListing";
 import Home from "./home/Home";
 import Category from "./category/Category";
 
 export default function App() {
-
 
     return (
         <Router>

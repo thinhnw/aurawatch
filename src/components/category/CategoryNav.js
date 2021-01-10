@@ -10,7 +10,7 @@ export default function CategoryNav() {
             <h3 className="category__heading">CATEGORIES</h3>
             <ul className="category-list">
                 <li className="category-item">
-                    <Link to="/category" className="category-item__link">
+                    <Link to="/category?page=1" className="category-item__link">
                         Collections
                     </Link>
                     <ul className="collection__list">
