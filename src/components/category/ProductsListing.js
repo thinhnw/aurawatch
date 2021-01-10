@@ -70,9 +70,10 @@ export default function ProductsListing() {
         setPage(num);
         let displayItems = items;
 
-        if (coll === "") {}
+        if (coll === "" || coll === "sale") {}
         else if (coll === "men") { displayItems = items.filter(x => x.gender === "men") }
         else if (coll === "women") { displayItems = items.filter(x => x.gender === "women") }
+        else if (coll === "accessories") {}
         else {
             displayItems = items.filter(x => x.coll.toLowerCase() === coll);
         }
@@ -150,7 +151,7 @@ export default function ProductsListing() {
                                 "/category/:coll?page=num"]} component={MainComp} />
                             <div className="grid__row">
                                 <div className={classes.root}>
-                                    <Pagination count={2} page={page} onChange={handleChange} />
+                                    <Pagination count={3} page={page} onChange={handleChange} />
                                 </div>
                             </div>
                         </div>

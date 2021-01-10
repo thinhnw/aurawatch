@@ -18,6 +18,9 @@ export default function CategoryNav() {
                             <Link to="/category/kashmir" className="collection__item_link">Kashmir</Link>
                         </li>
                         <li>
+                            <Link to="/category/melissani" className="collection__item_link">Melissani</Link>
+                        </li>
+                        <li>
                             <Link to="/category/weimar" className="collection__item_link">Weimar</Link>
                         </li>
                         <li>
@@ -25,9 +28,6 @@ export default function CategoryNav() {
                         </li>
                         <li>
                             <Link to="/category/jackson" className="collection__item_link">Jackson</Link>
-                        </li>
-                        <li>
-                            <Link to="/category/melissani" className="collection__item_link">Melissani</Link>
                         </li>
                         <li>
                             <Link to="/category/hamilton" className="collection__item_link">Hamilton</Link>
