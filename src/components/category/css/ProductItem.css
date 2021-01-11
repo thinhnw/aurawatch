@@ -9,7 +9,7 @@
 
 .ProductItem__img{
     width: 100%;
-
+    cursor: pointer;
 }
 .ProductItem__star{
     color: #C7C7C7;

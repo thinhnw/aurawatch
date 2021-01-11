@@ -30,6 +30,7 @@
     margin-top: 16px;
 }
 .Users_form-control input {
+    outline: none;
     border-radius: 0;
     border: 1px solid #ddd ;
     background: #fff;

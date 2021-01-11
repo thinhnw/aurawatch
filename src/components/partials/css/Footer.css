@@ -19,12 +19,18 @@
 .Footer_info ul {
     list-style-position: inside;
 }
+
 .Footer_info a {
     text-decoration: none;
     color: white;
 }
 .Footer_contact p, .Footer_info li {
     margin-bottom: 16px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+.Footer_info li :hover{
+    color: var(--white-color);
 }
 .Footer_container {
     width: 80%;
@@ -56,6 +62,7 @@
 .Footer_subscription input {
     border-radius: 26px;
     border: none;
+    outline: none;
     padding: 16px;
 }
 .Footer_contact {

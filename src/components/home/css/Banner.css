@@ -39,6 +39,7 @@
 .Banner-next {
     position: absolute;
     right: 0;
+    outline: none;
     top: 300px;
     border: none;
     height: 100px;
@@ -48,6 +49,7 @@
 .Banner-prev {
     position: absolute;
     left :0;
+    outline: none;
     top: 300px;
     border: none;
     height: 100px;
@@ -55,8 +57,10 @@
     background: url(../../../images/sprite.png) no-repeat scroll 0 -165px transparent;
 }
 .Banner-prev:hover {
+    cursor: pointer;
     background: url(../../../images/sprite.png) no-repeat scroll 0 -270px transparent;
 }
 .Banner-next:hover {
+    cursor: pointer;
     background: url(../../../images/sprite.png) no-repeat scroll -480px -270px transparent;
 }
