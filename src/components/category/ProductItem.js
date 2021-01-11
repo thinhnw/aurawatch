@@ -10,11 +10,12 @@ export default function ProductItem(props) {
 
     const history = useHistory();
     const [ item, setItem ] = useState({
-        name: "",
+        name: "Paul",
         price: 0,
         quantity: 0,
-        coll: "",
-        gender:""
+        coll: "Weimar",
+        gender:"men",
+        rating: 0
     });
 
     const [ error, setError ] = useState(null);
@@ -37,7 +38,7 @@ export default function ProductItem(props) {
                     setError(error);
                 }
             )
-    }, [])
+    }, [props.prodid])
 
     if (error) {
         return <div>Error: {error.message}</div>

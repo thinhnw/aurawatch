@@ -8,14 +8,7 @@ import img5 from './images/pro_5_1_3_1_1.jpeg';
 import img6 from './images/pro_8_4.jpg';
 import img7 from './images/pro_9_1_1_3.jpg';
 import PageTitleBanner from "../partials/PageTitleBanner";
-export default function X() {
-    return(
-        <div>
-
-        </div>
-    );
-}
-function a() {
+export default function Blog() {
 
     return (
         <div className="Blog">

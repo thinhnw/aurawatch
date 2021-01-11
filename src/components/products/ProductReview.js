@@ -67,17 +67,17 @@ export default function ProductReview() {
                                     <StarIcon style={{ color: "#f7d72f"}}/>
                                 </div>
                                 <div className="ProductReview_review-title">
-                                    <h3>Nice</h3>
+                                    <h3>A Great Watch</h3>
                                 </div>
                                 <div className="ProductReview_review">
-                                    <p>Very nice. Good strap</p>
+                                    <p>Bought this for my friend on her birthday and she said she love it so much.</p>
                                 </div>
                                 <div className="ProductReview_author">
                                     <div className="ProductReview_avatar">
-                                        <img src={author1} alt=""/>
+                                        <img src={author2} alt=""/>
                                     </div>
                                     <div className="ProductReview_author-name">
-                                        <p><strong>Josh Dun</strong></p>
+                                        <p><strong>Taylor Swift</strong></p>
                                         <p>Verified Buyer</p>
                                     </div>
                                 </div>
@@ -94,17 +94,17 @@ export default function ProductReview() {
                                     <StarIcon style={{ color: "#f7d72f"}}/>
                                 </div>
                                 <div className="ProductReview_review-title">
-                                    <h3>Nice</h3>
+                                    <h3>Best Watch</h3>
                                 </div>
                                 <div className="ProductReview_review">
-                                    <p>Very nice. Good strap</p>
+                                    <p>Comfortable to wear. Looks very elegant</p>
                                 </div>
                                 <div className="ProductReview_author">
                                     <div className="ProductReview_avatar">
-                                        <img src={author1} alt=""/>
+                                        <img src={author3} alt=""/>
                                     </div>
                                     <div className="ProductReview_author-name">
-                                        <p><strong>Josh Dun</strong></p>
+                                        <p><strong>Chuck Norris</strong></p>
                                         <p>Verified Buyer</p>
                                     </div>
                                 </div>

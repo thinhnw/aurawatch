@@ -1,3 +1,7 @@
+.ProductPhotoContainer_main {
+
+    position: relative;
+}
 .ProductPhotoContainer_main-inner {
     width: 95%;
     margin: 0 auto;
@@ -21,5 +25,34 @@
 }
 .ProductPhotoContainer_sub-item img {
     width: 100%;
+    display: block;
+    cursor: pointer;
+}
+.ProductPhoto-prev {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    border: none;
+    background: url(../../../images/sprite.png) no-repeat scroll -15px -388px transparent;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display:none;
+}
+.ProductPhoto-next {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    border: none;
+    background: url(../../../images/sprite.png) no-repeat scroll -540px -388px transparent;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+}
+.ProductPhotoContainer_main:hover .ProductPhoto-next {
+    display: block;
+}
+.ProductPhotoContainer_main:hover .ProductPhoto-prev {
     display: block;
 }

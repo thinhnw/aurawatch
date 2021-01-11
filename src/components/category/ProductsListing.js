@@ -1,9 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import './css/ProductsListing.css';
-import img1 from './images/pro_3_1_3_1.jpeg';
 import ProductItem from "./ProductItem";
 import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
+import {
+    Route,
+    useHistory,
+    useParams,
+    useLocation
+} from 'react-router-dom';
+import CategoryNav from "./CategoryNav";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -11,165 +21,182 @@ const useStyles = makeStyles((theme) => ({
             marginTop: theme.spacing(2),
         },
     },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
 }));
 
 
 export default function ProductsListing() {
 
     const classes = useStyles();
+    const history = useHistory();
     const [ page, setPage] = useState(1);
     const [ items, setItems ] = useState([]);
     const [ error, setError ] = useState(null);
     const [ isLoaded, setIsLoaded ] = useState(false);
+    const [ order, setOrder ] = useState(0);
+
     const handleChange = (event, value) => {
         setPage(value);
+        console.log('page', value);
+
+        let path = window.location.pathname.indexOf("page");
+        if (path === -1) history.push(window.location.pathname + "?page=" + value);
+        else {
+            path = window.location.pathname;
+            path.slice(0, path.length - 1);
+            history.push(path + value);
+        }
     };
 
     useEffect(() => {
+
+        setItems([]);
         fetch("https://aurawatch-server.herokuapp.com/watches")
             .then(res => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
-                    setItems(result);
+                    setItems(items => [ ...items, ...result ]);
                 },
                 (error) => {
                     setIsLoaded(true);
                     setError(error);
                 }
             )
+        return function cleanup() {
+            setPage(1);
+        }
     }, []);
+
+    function MainComp() {
+
+        let { coll = "" } = useParams();
+        const search = useLocation().search;
+        const num = parseInt(new URLSearchParams(search).get('page')) || 1;
+        setPage(num);
+        let displayItems = items;
+
+        if (coll === "" || coll === "sale") {}
+        else if (coll === "men") { displayItems = items.filter(x => x.gender === "men") }
+        else if (coll === "women") { displayItems = items.filter(x => x.gender === "women") }
+        else if (coll === "accessories") {}
+        else {
+            displayItems = items.filter(x => x.coll.toLowerCase() === coll);
+        }
+
+        let first = (page - 1) * 9;
+        let last = (page * 9) > displayItems.length ? displayItems.length : page * 9;
+        if (order === 1) {
+            displayItems.sort((a, b) => {
+                if (a.price < b.price) return -1;
+                if (a.price > b.price) return 1;
+                return 0;
+            })
+        } else if (order === 2) {
+            displayItems.sort((a, b) => {
+                if (a.price < b.price) return 1;
+                if (a.price > b.price) return -1;
+                return 0;
+            })
+        }
+        return (
+            <div className={"grid__row"}>
+                {
+                    displayItems.slice(first, last).map((x, i) => {
+                        return <div key={i} className={"gird__columns-3-4 "}>
+                            <ProductItem prodid={x.id}/>
+                        </div>
+                    })
+                }
+            </div>
+        )
+    }
+
+    function handleSelect(event) {
+
+        setOrder(event.target.value)
+    }
 
     if (error) { return <div>Error: {error.message}</div>}
     else if (!isLoaded) { return <div>Loading...</div>}
     else
-    return (
-        <div className="ProductsListing">
-            <div className="grid">
-                <div className="grid__row">
+        return (
+            <div className="ProductsListing">
+                <div className="grid">
+                    <div className="grid__row">
                     <div className="grid__columns-3">
-                        <nav className="category">
-                            <h3 className="category__heading">CATEGORIES</h3>
-                            <ul className="category-list">
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">
-                                        <span className="ProductsListing_collections">Collections</span>
-                                    </a>
-                                </li>
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">For Him</a>
-                                </li>
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">For Her</a>
-                                </li>
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">Accessories</a>
-                                </li>
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">Sale</a>
-                                </li>
-                                <li className="category-item">
-                                    <a href="/#" className="category-item__link">Blog</a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <CategoryNav />
                         <nav className="category">
                             <div className="category__heading category__heading-compare">NEW PRODUCTS</div>
                             <div className="block-content">
                                 <ul className="product-items">
-                                    <li className="product-item">
-                                        <div className="product-item-info">
-                                            <a href="/#" className="product-item-photo">
-                                                <img
-                                                    src="https://templatetrend.in/magento/MAG600/pub/media/catalog/product/cache/29/thumbnail/80x96/beff4985b56e3afdbeabfc89641a4582/p/r/pro_8_4.jpg"
-                                                    alt="img1" className="photo-img" width="80" height="90"/>
-                                            </a>
-                                            <div className="product-item-details">
-                                                <div className="product-item-detail">
-                                                    <strong className="product-item-name">
-                                                        <a href="/#" className="product-item-link">Tiger Ipsum Text</a>
-                                                    </strong>
+                                    {
+                                        items.slice(0, 3).map((x, i) => {
+                                            return <li className="product-item" key={i}>
+                                                <div className="product-item-info">
+                                                    <a href="/#" className="product-item-photo">
+                                                        <img
+                                                            src={`/images/${x.name.toLowerCase()}_1.jpeg`}
+                                                            alt="img1" className="photo-img" width="80" height="90"/>
+                                                    </a>
+                                                    <div className="product-item-details">
+                                                        <div className="product-item-detail">
+                                                            <strong className="product-item-name">
+                                                                <a href="/#" className="product-item-link">{x.coll + " " +x.name}</a>
+                                                            </strong>
+                                                        </div>
+                                                        <span className="price-box">${x.price.toFixed(2)}</span>
+                                                        <div className="product-item-inner">
+                                                            <a href="/#" className="product-item-primary">Add To Cart</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <span className="price-box">$84.00</span>
-                                                <div className="product-item-inner">
-                                                    <a href="/#" className="product-item-primary">Add To Cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="product-item">
-                                        <div className="product-item-info">
-                                            <a href="/#" className="product-item-photo">
-                                                <img
-                                                    src="https://templatetrend.in/magento/MAG600/pub/media/catalog/product/cache/29/thumbnail/80x96/beff4985b56e3afdbeabfc89641a4582/p/r/pro_9_1_1_3.jpg"
-                                                    alt="img1" className="photo-img" width="80" height="90"/>
-                                            </a>
-                                            <div className="product-item-details">
-                                                <div className="product-item-detail">
-                                                    <strong className="product-item-name">
-                                                        <a href="/#" className="product-item-link">Tizzy Watch Ipsum</a>
-                                                    </strong>
-                                                </div>
-                                                <span className="price-box">$129.00</span>
-                                                <div className="product-item-inner">
-                                                    <a href="/#" className="product-item-primary">Add To Cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li className="product-item">
-                                        <div className="product-item-info">
-                                            <a href="/" className="product-item-photo">
-                                                <img
-                                                    src={img1}
-                                                    alt="img1" className="photo-img" width="80" height="90"/>
-                                            </a>
-                                            <div className="product-item-details">
-                                                <div className="product-item-detail">
-                                                    <strong className="product-item-name">
-                                                        <a href="/#" className="product-item-link">Tizzy Watch Ipsum</a>
-                                                    </strong>
-                                                </div>
-                                                <span className="price-box">$239.00</span>
-                                                <div className="product-item-inner">
-                                                    <a href="/#" className="product-item-primary">Add To Cart</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                            </li>
+                                        })
+                                    }
                                 </ul>
                             </div>
                         </nav>
                     </div>
                     <div className="grid__columns-9">
                         <div className="toolbar-sorter sorter">
-                            <label className="sorter-label" htmlFor="sorter">Sort By</label>
-                            <select id="sorter" data-role="sorter" className="sorter-options">
-                                <option value="position" defaultValue="selected">A-Z</option>
-                                <option value="name">Increasing by Price</option>
-                                <option value="price">Decreasing by Price</option>
-                            </select>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel id="demo-simple-select-helper-label">Sort by</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-helper-label"
+                                    id="demo-simple-select-helper"
+                                    value={order}
+                                    onChange={handleSelect}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={1}>Price: Low to High</MenuItem>
+                                    <MenuItem value={2}>Price: High to Low</MenuItem>
+                                </Select>
+                            </FormControl>
+
                         </div>
+
                         <div className="home-product">
-                            <div className="grid__row">
-                                {
-                                    items.map((x, i) => {
-                                        console.log(x.id);
-                                        if (i + 1 <= (page - 1) * 9 || i + 1 > page * 9) {
-                                            return <div></div>;
-                                        }
-                                        return <div key={i} className={"gird__columns-3-4 "}>
-                                            <ProductItem prodid={x.id}/>
-                                        </div>
-                                    })
-                                }
-                            </div>
+
+                            <Route exact path={["/category",
+                                "/category?page=num",
+                                "/category/:coll",
+                                "/category/:coll?page=num"]} component={MainComp} />
                             <div className="grid__row">
                                 <div className={classes.root}>
-                                    <Pagination count={2} page={page} onChange={handleChange} />
+                                    <Pagination count={3} page={page} onChange={handleChange} />
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

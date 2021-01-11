@@ -19,7 +19,12 @@
 .Footer_info ul {
     list-style-position: inside;
 }
-.Footer_contact p, .Footer_info li a {
+
+.Footer_info a {
+    text-decoration: none;
+    color: white;
+}
+.Footer_contact p, .Footer_info li {
     margin-bottom: 16px;
     color: var(--text-color);
     text-decoration: none;

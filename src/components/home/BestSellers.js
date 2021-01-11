@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import './css/BestSellers.css';
 import ProductItem from '../category/ProductItem';
-import img1 from './images/news_1.jpeg';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         flexGrow: 1,
     },
@@ -21,17 +20,22 @@ export default function BestSellers() {
     const [ women, setWomen ] = useState([]);
 
     useEffect(() => {
+        setMen([]);
+        setWomen([]);
         fetch("https://aurawatch-server.herokuapp.com/watches")
             .then(res => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
-                    result.forEach((x) => {
-                        if (x.gender === "men" && men.length < 4) {
-                            setMen( men => [ ...men, x ]);
-                        }
-                        if (x.gender === "women" && women.length < 4) {
-                            setWomen( women => [ ...women, x ]);
+                    let cntMen = 0;
+                    let cntWomen = 0;
+                    result.forEach( x => {
+                        if (x.gender === "men" && cntMen < 4) {
+                            setMen(men => [ ...men, x ]);
+                            cntMen++;
+                        } else if (x.gender === "women" && cntWomen < 4) {
+                            setWomen(women => [ ...women, x ]);
+                            cntWomen++;
                         }
                     })
                 },

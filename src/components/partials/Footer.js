@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import "./css/Footer.css";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
 
@@ -23,10 +24,10 @@ export default function Footer() {
 							<div className="Footer_item Footer_info">
 								<h3>INFORMATION</h3>
 								<ul>
-									<li><a href="/#">About Uss</a></li>
-									<li><a href="/#">Delivery Information</a></li>
-									<li><a href="/#">Privacy Policy</a></li>
-									<li><a href="/#">Terms & Conditions</a></li>
+									<li><Link to="/about">About Us</Link></li>
+									<li>Delivery Information</li>
+									<li>Privacy Policy</li>
+									<li>Terms & Conditions</li>
 								</ul>
 							</div>
 						</Grid>

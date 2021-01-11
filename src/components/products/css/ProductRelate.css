@@ -1,0 +1,15 @@
+.ProductRelate {
+    width: 100%;
+    display: block;
+    padding: 80px 0;
+}
+.ProductRelate_container {
+    width: 1200px;
+    display: block;
+    margin: 0 auto;
+}
+.ProductRelate_title h2 {
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 25px;
+}

@@ -1,0 +1,13 @@
+.AboutUs_container {
+    padding: 60px 0;
+    width: 1200px;
+    display: block;
+    margin: 0 auto;
+}
+.AboutUs_container h1 {
+    margin-bottom: 56px;
+}
+.AboutUs_container p {
+    line-height: 1.5;
+    margin: 16px 0;
+}

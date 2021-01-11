@@ -20,9 +20,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export default function ProductDetail(props) {
-
-    const classes = useStyles();
+export default function ProductDetail() {
 
     return (
         <div className="ProductDetail">
@@ -31,7 +29,7 @@ export default function ProductDetail(props) {
     )
 }
 
-function Child (props)  {
+function Child ()  {
     const classes = useStyles();
     const [ error, setError ] = useState(null);
     const [ isLoaded, setIsLoaded ] = useState(false);
@@ -69,7 +67,7 @@ function Child (props)  {
                     setError(error);
                 }
             )
-    }, []);
+    }, [item.coll, item.name]);
 
     if (error) { return <div>Error: {error.message}</div>}
     else if (!isLoaded) {return <div>Loading...</div>}
@@ -99,7 +97,7 @@ function Child (props)  {
                 <ProductReview />
             </div>
             <Parallax/>
-            <ProductRelate/>
+            <ProductRelate gender={item.gender}/>
         </div>
     )
 }
