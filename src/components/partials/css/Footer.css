@@ -22,12 +22,19 @@
 
 .Footer_info a {
     text-decoration: none;
-    color: white;
+    color: var(--text-color);
 }
 .Footer_contact p, .Footer_info li {
     margin-bottom: 16px;
     color: var(--text-color);
     text-decoration: none;
+}
+.Footer_contact a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 26px;
+    font-weight: 700;
+    font-size: 1.25rem;
 }
 .Footer_info li :hover{
     color: var(--white-color);

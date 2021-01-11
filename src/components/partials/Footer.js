@@ -44,12 +44,14 @@ export default function Footer() {
 						</Grid>
 						<Grid item xs={3}>
 							<div className="Footer_item Footer_contact">
-								<Link to={"/contact"}>CONTACT US</Link>
-								<p>Honour custom Site Designs
-									600, Boltacusta avenue apt.
-									Mesa,California</p>
-								<p>info@customdesign.com</p>
-								<p>(+91) 90-3399-1938</p>
+                                <h3>
+									<Link to={"/contact"}>CONTACT US</Link>
+								</h3>
+								<p>
+									Address: 8A Ton That Thuyet, My Dinh, Nam Tu Liem, Hanoi 100000, Vietnam
+								</p>
+								<p>aurawatch@aurawatch.org</p>
+								<p>+84 24 7300 8855 </p>
 							</div>
 						</Grid>
 						<div className="Footer_container-break"> </div>
