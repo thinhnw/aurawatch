@@ -1,6 +1,7 @@
 .MenuMiddle {
     width: 63%;
     display: inline-block;
+    padding-left: 26px;
 }
 .MenuMiddle_outer {
     list-style-type: none;

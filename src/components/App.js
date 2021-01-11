@@ -13,6 +13,7 @@ import {
 import Home from "./home/Home";
 import Category from "./category/Category";
 import AboutUs from "./home/AboutUs";
+import Contact from "./home/Contact";
 
 export default function App() {
 
@@ -26,6 +27,7 @@ export default function App() {
                 <Route exact path='/signup' component={SignUp} />
                 <Route exact path='/blog' component={Blog} />
                 <Route exact path='/about' component={AboutUs}/>
+                <Route exact path='/contact' component={Contact}/>
                 <Route exact path="/" component={Home}/>
                 <Route component={Home}/>
             </Switch>

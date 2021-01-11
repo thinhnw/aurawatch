@@ -44,7 +44,7 @@ export default function Footer() {
 						</Grid>
 						<Grid item xs={3}>
 							<div className="Footer_item Footer_contact">
-								<h3>CONTACTS</h3>
+								<Link to={"/contact"}>CONTACT US</Link>
 								<p>Honour custom Site Designs
 									600, Boltacusta avenue apt.
 									Mesa,California</p>
