@@ -5,7 +5,7 @@ import PageTitleBanner from "../partials/PageTitleBanner";
 export default function Category() {
     return (
         <div>
-            <PageTitleBanner title={"Collection"}/>
+            <PageTitleBanner title={"Collections"}/>
             <ProductsListing />
         </div>
     )
