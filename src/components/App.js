@@ -12,6 +12,7 @@ import {
 } from "react-router-dom";
 import Home from "./home/Home";
 import Category from "./category/Category";
+import AboutUs from "./home/AboutUs";
 
 export default function App() {
 
@@ -24,6 +25,7 @@ export default function App() {
                 <Route exact path="/login" component={LogIn}/>
                 <Route exact path='/signup' component={SignUp} />
                 <Route exact path='/blog' component={Blog} />
+                <Route exact path='/about' component={AboutUs}/>
                 <Route exact path="/" component={Home}/>
                 <Route component={Home}/>
             </Switch>

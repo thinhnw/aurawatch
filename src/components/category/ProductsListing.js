@@ -10,12 +10,23 @@ import {
     useLocation
 } from 'react-router-dom';
 import CategoryNav from "./CategoryNav";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {
             marginTop: theme.spacing(2),
         },
+    },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
     },
 }));
 
@@ -28,6 +39,7 @@ export default function ProductsListing() {
     const [ items, setItems ] = useState([]);
     const [ error, setError ] = useState(null);
     const [ isLoaded, setIsLoaded ] = useState(false);
+    const [ order, setOrder ] = useState(0);
 
     const handleChange = (event, value) => {
         setPage(value);
@@ -80,6 +92,19 @@ export default function ProductsListing() {
 
         let first = (page - 1) * 9;
         let last = (page * 9) > displayItems.length ? displayItems.length : page * 9;
+        if (order === 1) {
+            displayItems.sort((a, b) => {
+                if (a.price < b.price) return -1;
+                if (a.price > b.price) return 1;
+                return 0;
+            })
+        } else if (order === 2) {
+            displayItems.sort((a, b) => {
+                if (a.price < b.price) return 1;
+                if (a.price > b.price) return -1;
+                return 0;
+            })
+        }
         return (
             <div className={"grid__row"}>
                 {
@@ -92,6 +117,12 @@ export default function ProductsListing() {
             </div>
         )
     }
+
+    function handleSelect(event) {
+
+        setOrder(event.target.value)
+    }
+
     if (error) { return <div>Error: {error.message}</div>}
     else if (!isLoaded) { return <div>Loading...</div>}
     else
@@ -135,12 +166,22 @@ export default function ProductsListing() {
                     </div>
                     <div className="grid__columns-9">
                         <div className="toolbar-sorter sorter">
-                            <label className="sorter-label" htmlFor="sorter">Sort By</label>
-                            <select id="sorter" data-role="sorter" className="sorter-options">
-                                <option value="position" defaultValue="selected">A-Z</option>
-                                <option value="name" >Increasing by Price</option>
-                                <option value="price">Decreasing by Price</option>
-                            </select>
+                            <FormControl className={classes.formControl}>
+                                <InputLabel id="demo-simple-select-helper-label">Sort by</InputLabel>
+                                <Select
+                                    labelId="demo-simple-select-helper-label"
+                                    id="demo-simple-select-helper"
+                                    value={order}
+                                    onChange={handleSelect}
+                                >
+                                    <MenuItem value="">
+                                        <em>None</em>
+                                    </MenuItem>
+                                    <MenuItem value={1}>Price: Low to High</MenuItem>
+                                    <MenuItem value={2}>Price: High to Low</MenuItem>
+                                </Select>
+                            </FormControl>
+
                         </div>
 
                         <div className="home-product">

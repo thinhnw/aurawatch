@@ -19,6 +19,10 @@
 .Footer_info ul {
     list-style-position: inside;
 }
+.Footer_info a {
+    text-decoration: none;
+    color: white;
+}
 .Footer_contact p, .Footer_info li {
     margin-bottom: 16px;
 }

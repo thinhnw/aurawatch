@@ -48,9 +48,6 @@ export default function ProductInfo(props) {
                 </div>
                 <div className={"ProductInfo_tab ProductInfo_tab-shipping " + (activeTab === 0 ? "ProductInfo_tab-active" : "" )}>
                     <p>
-                        Weimar Paul men's fashion watch
-                    </p>
-                    <p>
                         A Watch for guys who love elegance and classics. With a combination of domed glass, black and glamorous rosegold, the Weimar Paul watch will help you elevate any outfit.
                     </p>
                     <p>
@@ -60,7 +57,7 @@ export default function ProductInfo(props) {
                         - <strong>Case material:</strong> 316L stainless steel - is the standard for a high-end watch, making your watch durable over time.
                     </p>
                     <p>
-                        - <strong>3ATM Waterproof </strong>- The feature makes yo(activeTab === 0 ? "ProductInfo_tab-active" : "" )u feel confident and comfortable in all your daily activities.
+                        - <strong>3ATM Waterproof </strong>- The feature makes you feel confident and comfortable in all your daily activities.
                     </p>
                     <p>
                         - <strong>Easy Wire Change </strong>- Transform your style in 30 seconds without any special tools
