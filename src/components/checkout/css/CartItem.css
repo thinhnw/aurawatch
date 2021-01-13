@@ -15,7 +15,6 @@
 }
 .CartItem_info {
     flex-grow: 2;
-    display: block;
     padding-left: 16px;
 }
 .CartItem_info p {
@@ -25,9 +24,31 @@
     text-transform: uppercase;
 }
 .CartItem_price {
-    display: block;
+    display: flex;
+    align-items: center;
 }
 .CartItem_price p {
     font-size: 1.2rem;
+    line-height: 2.5;
+    margin-left: 12px;
     color: #0c0c0d;
+}
+.CartItem_price input {
+    width: 50px;
+    height: 30px;
+}
+.CartItem_delete {
+    position: relative;
+}
+.CartItem_deleteIcon {
+    color: #737373;
+    position: absolute;
+    font-size: 2.5rem;
+    top: 50%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+}
+.CartItem_deleteIcon:hover {
+    color: #0c0c0d;
+    cursor: pointer;
 }

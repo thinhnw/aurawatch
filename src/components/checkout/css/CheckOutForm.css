@@ -28,7 +28,7 @@
 }
 .CheckOut_form-control button {
 
-    width: 300px;
+    width: 100%;
     display: block;
     margin: 0 auto;
     border-radius: 0;
