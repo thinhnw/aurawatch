@@ -14,6 +14,7 @@ import Home from "./home/Home";
 import Category from "./category/Category";
 import AboutUs from "./home/AboutUs";
 import Contact from "./home/Contact";
+import BackToTopButton from "./partials/BackToTopButton";
 
 export default function App() {
 
@@ -31,6 +32,7 @@ export default function App() {
                 <Route exact path="/" component={Home}/>
                 <Route component={Home}/>
             </Switch>
+            <BackToTopButton />
             <Footer />
         </Router>
     );
