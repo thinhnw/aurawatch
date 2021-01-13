@@ -42,6 +42,10 @@ export default function ProductRelate(props) {
             )
     }, [gender])
 
+    const scrollTop = () =>{
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    };
+
     if (error) {
         return <div>Error: {error.message}</div>
     } else if (!isLoaded) {
@@ -57,7 +61,7 @@ export default function ProductRelate(props) {
                     <Grid container spacing={3}>
                         {
                             items.map((x, i) => {
-                                return <Grid key={i} item xs={3}>
+                                return <Grid onClick={scrollTop} key={i} item xs={3}>
                                     <ProductItem prodid={x.id}/>
                                 </Grid>
                             })
