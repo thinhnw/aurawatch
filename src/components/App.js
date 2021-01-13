@@ -15,6 +15,7 @@ import Category from "./category/Category";
 import AboutUs from "./home/AboutUs";
 import Contact from "./home/Contact";
 import BackToTopButton from "./partials/BackToTopButton";
+import CheckOut from "./checkout/CheckOut";
 
 export default function App() {
 
@@ -29,6 +30,7 @@ export default function App() {
                 <Route exact path='/blog' component={Blog} />
                 <Route exact path='/about' component={AboutUs}/>
                 <Route exact path='/contact' component={Contact}/>
+                <Route path='/checkout' component={CheckOut}/>
                 <Route exact path="/" component={Home}/>
                 <Route component={Home}/>
             </Switch>

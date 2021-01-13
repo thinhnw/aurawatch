@@ -1,0 +1,38 @@
+.Cart {
+    width: 90%;
+    margin: -20px 0 0 auto;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+    padding: 20px 30px;
+}
+.Cart h1 {
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 1.75rem;
+    padding-bottom: 20px;
+}
+.Cart_coupon {
+    padding: 20px;
+    border-top: 1px #ddd solid;
+}
+.Cart_coupon input {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    width: 70%;
+    padding: 16px;
+    margin-right: 5%;
+}
+.Cart_coupon button {
+    border-radius: 0;
+    border: 1px solid #ddd;
+    padding: 16px;
+    width: 25%;
+}
+.Cart_total {
+    border-top: 1px #ddd solid;
+    padding: 20px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+.Cart_total span {
+    float: right;
+}

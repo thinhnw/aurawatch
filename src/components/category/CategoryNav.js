@@ -47,12 +47,6 @@ export default function CategoryNav() {
                     <Link to="/category/women" className="category-item__link">For Her</Link>
                 </li>
                 <li className="category-item">
-                    <Link to="/category/accessories" className="category-item__link">Accessories</Link>
-                </li>
-                <li className="category-item">
-                    <Link to="/category" className="category-item__link">Sale</Link>
-                </li>
-                <li className="category-item">
                     <Link to="/blog" className="category-item__link">Blog</Link>
                 </li>
             </ul>

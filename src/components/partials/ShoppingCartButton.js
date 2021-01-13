@@ -1,9 +1,12 @@
 import React from 'react';
 import './css/ShoppingCartButton.css';
+import {Link} from "react-router-dom";
 export default function ShoppingCartButton() {
     return (
-        <div className="ShoppingCartButton">
+        <Link to="/checkout" className="ShoppingCartButton">
+            <div className="ShoppingCartButton">
+            </div>
+        </Link>
 
-        </div>
     )
 }

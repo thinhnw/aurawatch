@@ -1,0 +1,33 @@
+.CartItem {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+}
+.CartItem_img-wrapper {
+    width: 90px;
+}
+.CartItem_img-wrapper img {
+    width: 100%;
+    display: block;
+}
+.CartItem_info {
+    flex-grow: 2;
+    display: block;
+    padding-left: 16px;
+}
+.CartItem_info p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #0c0c0d;
+    text-transform: uppercase;
+}
+.CartItem_price {
+    display: block;
+}
+.CartItem_price p {
+    font-size: 1.2rem;
+    color: #0c0c0d;
+}
