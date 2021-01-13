@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './css/Testimonial.css';
 import TestimonialItem from './TestimonialItem';
 import img1 from './images/testimonial_img1.jpeg';
@@ -13,17 +13,17 @@ export default function Testimonial() {
         {
             img: img1,
             author: "Chuck Norris - Wrestler",
-            comment:"Majority have suffered alteration in aome from, by injected believable.There varation words able s, but also the leap into electronic typesetting, 1960s with the release of Letraset sheetpassage."
+            comment:"I would like to personally thank you for your outstanding product. Thank you for making it painless, pleasant and most of all hassle free! I will recommend you to my colleagues."
         },
         {
             img: img2,
             author: "Taylor Swift - Singer",
-            comment: "LLorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet aut cum, exercitationem illum minima suscipit temporibus? Consequatur eaque expedita harum illum nisi nulla omnis, quas, quia recusandae, repudiandae undeorem"
+            comment: "It's exactly what I've been looking for. I couldn't have asked for more than this. The watches here are both attractive and highly adaptable."
         },
         {
             img: img3,
             author: "Josh Dun - Artist",
-            comment: " Aliquam amet aut cum, exercitationem illum minima suscipit temporibus? Consequatur eaque expedita harum illum nisi nulla omnis, quas, quia recusandae, repudiandae undeorem. LLorem ipsum dolor sit amet, consectetur adipisicing elit."
+            comment: "Colosseum Sterling watch is awesome! I would gladly pay over 600 dollars for this watch. I could probably go into sales for you. I don't know what else to say."
         }
     ];
 
@@ -34,6 +34,10 @@ export default function Testimonial() {
     function handlePrev() {
         setIndex( index === 0 ? testimonial.length-1 : index - 1);
     }
+
+    useEffect(() => {
+        setTimeout(handleNext, 5000);
+    } )
 
     return (
         <div className="Testimonial">

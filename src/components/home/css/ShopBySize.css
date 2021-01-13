@@ -56,4 +56,8 @@
     position: absolute;
     top: 0;
     left: 90px;
+    line-height: 1.5;
+}
+.ShopBySize .text p {
+    color: #878787;
 }

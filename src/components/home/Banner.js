@@ -13,17 +13,15 @@ export default function Banner() {
 
 	function handleNext() {
 		setCurrentSlide( currentSlide + 1 >= slides.length ? 0 : currentSlide + 1);
-		clearTimeout(auto);
 	}
 
 	function handlePrev() {
-		clearTimeout(auto);
 		setCurrentSlide( currentSlide === 0 ? slides.length-1 : currentSlide - 1);
 	}
 
 	useEffect(() => {
-		auto = setTimeout(() => setCurrentSlide(currentSlide === slides.length-1 ? 0 : currentSlide+1), 5000)
-	});
+		setTimeout(handleNext, 5000);
+	} );
 
 	return (
 		<div className="banner">
