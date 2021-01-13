@@ -30,12 +30,14 @@ export default function ProductInfo(props) {
                     <label htmlFor="qty">QTY</label>
                     <input type="number" name="qty" id="qty" min={0}/>
                 </div>
-                <button className="ProductInfo_primary-button">
-                    <ShoppingCartIcon />
-                    <span>
-                    ADD TO CART
-                </span>
-                </button>
+                <div className="ProductInfo_form-control">
+                    <button className=" ProductInfo_primary-button">
+                        <ShoppingCartIcon />
+                        <span>
+                            ADD TO CART
+                        </span>
+                    </button>
+                </div>
             </form>
             <div className="ProductInfo_tabs">
                 <div className="ProductInfo_labels">
