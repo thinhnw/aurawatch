@@ -27,7 +27,7 @@ export default function App() {
                 <Route path='/watches' component={ProductDetail}/>
                 <Route exact path="/login" component={LogIn}/>
                 <Route exact path='/signup' component={SignUp} />
-                <Route exact path='/blog' component={Blog} />
+                <Route path='/blog' component={Blog} />
                 <Route exact path='/about' component={AboutUs}/>
                 <Route exact path='/contact' component={Contact}/>
                 <Route path='/checkout' component={CheckOut}/>

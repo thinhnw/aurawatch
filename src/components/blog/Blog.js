@@ -8,6 +8,8 @@ import img5 from './images/pro_5_1_3_1_1.jpeg';
 import img6 from './images/pro_8_4.jpg';
 import img7 from './images/pro_9_1_1_3.jpg';
 import PageTitleBanner from "../partials/PageTitleBanner";
+import { Route, Link} from 'react-router-dom';
+import BlogPost from "./BlogPost";
 export default function Blog() {
 
     return (
@@ -15,155 +17,162 @@ export default function Blog() {
             <PageTitleBanner title={"Blog"}/>
             <div className="grid">
                 <div className="grid__row">
-                    <div className="grid__columns-9">
-                        <div className="post-wrapper">
-                            <ol className="post-list">
-                                <li className="post-holder">
-                                    <a href="/#" className="post-img__links">
-                                        <img src={img1} alt="" className="post-img"/>
-                                    </a>
-                                    <div className="blog-data">
-                                        <div className="post-title-holder">
-                                            <h2 className="post-title">
-                                                <a href="/#" className="post-title__link">Tizzy Watch Store</a>
-                                            </h2>
-                                        </div>
-                                        <div className="post-info">
-                                            <div className="post-posed">
-                                                <span className="post-label">Posted:</span>
-                                                <span className="post-value">January 08, 2017</span>
+                    <Route exact path="/blog">
+                        <div className="grid__columns-9">
+                            <div className="post-wrapper">
+                                <ol className="post-list">
+                                    <li className="post-holder">
+                                        <a href="/#" className="post-img__links">
+                                            <img src={img1} alt="" className="post-img"/>
+                                        </a>
+                                        <div className="blog-data">
+                                            <div className="post-title-holder">
+                                                <h2 className="post-title">
+                                                    <a href="/#" className="post-title__link">Tizzy Watch Store</a>
+                                                </h2>
                                             </div>
-                                            <div className="post-author">
-                                                <span className="post-label">Author:</span>
-                                                <span className="post-value">
+                                            <div className="post-info">
+                                                <div className="post-posed">
+                                                    <span className="post-label">Posted:</span>
+                                                    <span className="post-value">January 08, 2017</span>
+                                                </div>
+                                                <div className="post-author">
+                                                    <span className="post-label">Author:</span>
+                                                    <span className="post-value">
                                                     <a href="/#" className="post-value__link">Dixit Shah</a>
                                                 </span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="post-text">
-                                        <p className="post-text-detail">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                            It has survived not only five centuries, but also the leap into electronic typesetting,
-                                            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
-                                        </p>
-                                    </div>
-                                    <a href="/#" className="post-read-more">Read More >></a>
-                                    <hr/>
-                                </li>
-                                <li className="post-holder">
-                                    <a href="/#" className="post-img__links">
-                                        <img src={img2} alt="" className="post-img"/>
-                                    </a>
-                                    <div className="blog-data">
-                                        <div className="post-title-holder">
-                                            <h2 className="post-title">
-                                                <a href="/#" className="post-title__link">Tizzy Watch Store</a>
-                                            </h2>
+                                        <div className="post-text">
+                                            <p className="post-text-detail">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                                It has survived not only five centuries, but also the leap into electronic typesetting,
+                                                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                                                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
+                                            </p>
                                         </div>
-                                        <div className="post-info">
-                                            <div className="post-posed">
-                                                <span className="post-label">Posted:</span>
-                                                <span className="post-value">January 08, 2017</span>
+                                        <Link to="/blog/1" className="post-read-more">Read More >></Link>
+                                        <hr/>
+                                    </li>
+                                    <li className="post-holder">
+                                        <a href="/#" className="post-img__links">
+                                            <img src={img2} alt="" className="post-img"/>
+                                        </a>
+                                        <div className="blog-data">
+                                            <div className="post-title-holder">
+                                                <h2 className="post-title">
+                                                    <a href="/#" className="post-title__link">Tizzy Watch Store</a>
+                                                </h2>
                                             </div>
-                                            <div className="post-author">
-                                                <span className="post-label">Author:</span>
-                                                <span className="post-value">
+                                            <div className="post-info">
+                                                <div className="post-posed">
+                                                    <span className="post-label">Posted:</span>
+                                                    <span className="post-value">January 08, 2017</span>
+                                                </div>
+                                                <div className="post-author">
+                                                    <span className="post-label">Author:</span>
+                                                    <span className="post-value">
                                                     <a href="/#" className="post-value__link">Dixit Shah</a>
                                                 </span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="post-text">
-                                        <p className="post-text-detail">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                            It has survived not only five centuries, but also the leap into electronic typesetting,
-                                            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
-                                        </p>
-                                    </div>
-                                    <a href="/#" className="post-read-more">Read More >></a>
-                                    <hr/>
-                                </li>
-                                <li className="post-holder">
-                                    <a href="/#" className="post-img__links">
-                                        <img src={img3} alt="" className="post-img"/>
-                                    </a>
-                                    <div className="blog-data">
-                                        <div className="post-title-holder">
-                                            <h2 className="post-title">
-                                                <a href="/#" className="post-title__link">Tizzy Watch Store</a>
-                                            </h2>
+                                        <div className="post-text">
+                                            <p className="post-text-detail">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                                It has survived not only five centuries, but also the leap into electronic typesetting,
+                                                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                                                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
+                                            </p>
                                         </div>
-                                        <div className="post-info">
-                                            <div className="post-posed">
-                                                <span className="post-label">Posted:</span>
-                                                <span className="post-value">January 08, 2017</span>
+                                        <a href="/#" className="post-read-more">Read More >></a>
+                                        <hr/>
+                                    </li>
+                                    <li className="post-holder">
+                                        <a href="/#" className="post-img__links">
+                                            <img src={img3} alt="" className="post-img"/>
+                                        </a>
+                                        <div className="blog-data">
+                                            <div className="post-title-holder">
+                                                <h2 className="post-title">
+                                                    <a href="/#" className="post-title__link">Tizzy Watch Store</a>
+                                                </h2>
                                             </div>
-                                            <div className="post-author">
-                                                <span className="post-label">Author:</span>
-                                                <span className="post-value">
+                                            <div className="post-info">
+                                                <div className="post-posed">
+                                                    <span className="post-label">Posted:</span>
+                                                    <span className="post-value">January 08, 2017</span>
+                                                </div>
+                                                <div className="post-author">
+                                                    <span className="post-label">Author:</span>
+                                                    <span className="post-value">
                                                     <a href="/#" className="post-value__link">Dixit Shah</a>
                                                 </span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="post-text">
-                                        <p className="post-text-detail">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                            It has survived not only five centuries, but also the leap into electronic typesetting,
-                                            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
-                                        </p>
-                                    </div>
-                                    <a href="/#" className="post-read-more">Read More >></a>
-                                    <hr/>
-                                </li>
-                                <li className="post-holder">
-                                    <a href="/#" className="post-img__links">
-                                        <img src={img4} alt="" className="post-img"/>
-                                    </a>
-                                    <div className="blog-data">
-                                        <div className="post-title-holder">
-                                            <h2 className="post-title">
-                                                <a href="/#" className="post-title__link">Tizzy Watch Store</a>
-                                            </h2>
+                                        <div className="post-text">
+                                            <p className="post-text-detail">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                                It has survived not only five centuries, but also the leap into electronic typesetting,
+                                                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                                                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
+                                            </p>
                                         </div>
-                                        <div className="post-info">
-                                            <div className="post-posed">
-                                                <span className="post-label">Posted:</span>
-                                                <span className="post-value">January 08, 2017</span>
+                                        <a href="/#" className="post-read-more">Read More >></a>
+                                        <hr/>
+                                    </li>
+                                    <li className="post-holder">
+                                        <a href="/#" className="post-img__links">
+                                            <img src={img4} alt="" className="post-img"/>
+                                        </a>
+                                        <div className="blog-data">
+                                            <div className="post-title-holder">
+                                                <h2 className="post-title">
+                                                    <a href="/#" className="post-title__link">Tizzy Watch Store</a>
+                                                </h2>
                                             </div>
-                                            <div className="post-author">
-                                                <span className="post-label">Author:</span>
-                                                <span className="post-value">
+                                            <div className="post-info">
+                                                <div className="post-posed">
+                                                    <span className="post-label">Posted:</span>
+                                                    <span className="post-value">January 08, 2017</span>
+                                                </div>
+                                                <div className="post-author">
+                                                    <span className="post-label">Author:</span>
+                                                    <span className="post-value">
                                                     <a href="/#" className="post-value__link">Dixit Shah</a>
                                                 </span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="post-text">
-                                        <p className="post-text-detail">
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                            It has survived not only five centuries, but also the leap into electronic typesetting,
-                                            remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                            and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
-                                        </p>
-                                    </div>
-                                    <a href="/#" className="post-read-more">Read More >></a>
-                                </li>
-                            </ol>
+                                        <div className="post-text">
+                                            <p className="post-text-detail">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                                It has survived not only five centuries, but also the leap into electronic typesetting,
+                                                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                                                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
+                                            </p>
+                                        </div>
+                                        <a href="/#" className="post-read-more">Read More >></a>
+                                    </li>
+                                </ol>
+                            </div>
                         </div>
-                    </div>
+                    </Route>
+                    <Route exact path="/blog/:number">
+                        <div className="grid__columns-9">
+                            <BlogPost/>
+                        </div>
+                    </Route>
                     <div className="grid__columns-3">
                         <div className="columns-main">
                             <nav className="category">
