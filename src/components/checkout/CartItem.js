@@ -5,9 +5,16 @@ export default function CartItem(props) {
 
     const [ qty, setQty ] = useState(props.qty);
 
-    function handleChange(event, value) {
-        setQty(value)
+    const handleChange = (event) => {
+
+        setQty(event.target.value)
+        props.onChange(props.name, event.target.value);
     }
+
+    const handleDelete = () => {
+        props.onDelete(props.name);
+    }
+
     return (
         <div className="CartItem">
             <div className="CartItem_img-wrapper">
@@ -22,7 +29,7 @@ export default function CartItem(props) {
                 </div>
             </div>
             <div className="CartItem_delete">
-                <DeleteSweepOutlinedIcon fontSize="large" className="CartItem_deleteIcon"/>
+                <DeleteSweepOutlinedIcon fontSize="large" className="CartItem_deleteIcon" onClick={handleDelete}/>
             </div>
         </div>
     )

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './css/Cart.css';
 import CartItem from "./CartItem";
 
 export default function Cart() {
 
-    const items = [
+    const [ items, setItems ] = useState([
         {
             name: "Paul",
             coll: "Weimar",
@@ -23,13 +23,29 @@ export default function Cart() {
             price: 107,
             qty: 1
         },
-    ]
+    ])
+
+    const handleDelete = (name) => {
+        setItems(items.filter(item => {
+            return item.name !== name;
+        }))
+    }
+
+    const handleChange = (name, value) => {
+        setItems(items.map(item => {
+            if (item.name === name) item.qty = value
+            return item
+        }))
+    }
+
     return (
         <div className="Cart">
-            <h1 className="Cart_title">Your Items({ items.reduce((sum, x) => sum + x.qty, 0) })</h1>
+            <h1 className="Cart_title">Your Items</h1>
             {
                 items.map((x, i) => {
-                    return <CartItem name={x.name} coll={x.coll} price={x.price} qty={x.qty}/>
+                    return <CartItem key={i} name={x.name} coll={x.coll} price={x.price} qty={x.qty}
+                                     onDelete={handleDelete}
+                                     onChange={handleChange}/>
                 })
             }
             <div className="Cart_coupon">
@@ -39,7 +55,7 @@ export default function Cart() {
                 </form>
             </div>
             <div className="Cart_total">
-                <p>Total: <span>${items.reduce((sum, x) => sum + x.price, 0)}.00</span></p>
+                <p>Total: <span>${items.reduce((sum, x) => sum + x.qty * x.price, 0)}.00</span></p>
             </div>
         </div>
     )
