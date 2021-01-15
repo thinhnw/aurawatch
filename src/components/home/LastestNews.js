@@ -4,29 +4,30 @@ import img1 from './images/news_1.jpeg';
 import img2 from './images/news_2.jpeg';
 import img3 from './images/news_3.jpeg';
 import img4 from './images/news_4.jpeg';
+import {Link} from "react-router-dom";
 
 export default function LatestNews(props) {
 
     const news = [
         {
             img: img1,
-            title: "Title 1",
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer too ..."
+            title: "Seven Awesome Field Watches For Every Budget",
+            text: ""
         },
         {
             img: img2,
-            title: "Title 2",
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer too ..."
+            title: "The Essential Guide To Buying Watches Online",
+            text: ""
         },
         {
             img: img3,
-            title: "Title 3",
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer too ..."
+            title: "Seven Awesome Field Watches For Every Budget",
+            text: ""
         },
         {
             img: img4,
-            title: "Title 4",
-            text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer too ..."
+            title: "The Essential Guide To Buying Watches Online",
+            text: ""
         },
     ];
 
@@ -70,13 +71,13 @@ export default function LatestNews(props) {
             <div className="LatestNews_container">
                 <div className="LatestNews_title">
                     <h2>LATEST NEWS</h2>
-                    <button className="LatestNews-prev" onClick={handlePrev}></button>
-                    <button className="LatestNews-next" onClick={handleNext}></button>
+                    <button className="LatestNews-prev" onClick={handlePrev}> </button>
+                    <button className="LatestNews-next" onClick={handleNext}> </button>
                 </div>
                 <div className="LatestNews_news LatestNews_news-left" onMouseOver={handleMouseOverLeft} onMouseOut={handleMouseOutLeft}>
-                    <a href="/#">
+                    <Link to="/blog/1">
                         <img src={news[index].img} alt=""/>
-                    </a>
+                    </Link>
                     <div className="text-outer">
                         <div className={"text " + ((active === 1) && "active") }>
                             <h3 className="title">{ news[index].title }</h3>
