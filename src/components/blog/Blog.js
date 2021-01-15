@@ -237,10 +237,6 @@ export default function Blog() {
                                 </div>
                             </nav>
                             <nav className="category">
-
-
-                            </nav>
-                            <nav className="category">
                                 <h3 className="category__heading">RECENT POSTS</h3>
                                 <ul className="category-list">
                                     <li className="category-item">

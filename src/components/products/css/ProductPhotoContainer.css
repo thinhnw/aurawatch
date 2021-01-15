@@ -30,6 +30,7 @@
 }
 .ProductPhoto-prev {
     position: absolute;
+    outline: none;
     top: 50%;
     left: 16px;
     border: none;
@@ -40,6 +41,7 @@
     display:none;
 }
 .ProductPhoto-next {
+    outline: none;
     position: absolute;
     top: 50%;
     right: 16px;
@@ -55,4 +57,5 @@
 }
 .ProductPhotoContainer_main:hover .ProductPhoto-prev {
     display: block;
+
 }
