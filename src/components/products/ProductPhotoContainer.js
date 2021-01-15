@@ -5,6 +5,7 @@ export default function ProductPhotoContainer(props) {
 
     const imgs = [];
     const name = props.name;
+
     for (let i = 1; i <= 4; ++i) {
         let path = `/images/${name.toLowerCase()}_${i}.jpeg`;
         imgs.push(path) ;

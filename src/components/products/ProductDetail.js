@@ -78,10 +78,10 @@ function Child ()  {
             <div className="ProductDetail_container">
                 <div className={classes.root}>
                     <Grid container spacing={0}>
-                        <Grid item xs={6}>
+                        <Grid item xs={12} sm={6}>
                             <ProductPhotoContainer name={item.name}/>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={12} sm={6}>
                             <ProductInfo
                                 name={item.name}
                                 coll={item.coll}
