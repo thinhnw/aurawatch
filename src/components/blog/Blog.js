@@ -1,17 +1,58 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './css/Blog.css';
 import img1 from './images/1_1.jpg';
 import img2 from './images/2_3.jpg';
-import img3 from './images/4_5.jpg';
-import img4 from './images/5_2.jpg';
-import img5 from './images/pro_5_1_3_1_1.jpeg';
-import img6 from './images/pro_8_4.jpg';
-import img7 from './images/pro_9_1_1_3.jpg';
 import PageTitleBanner from "../partials/PageTitleBanner";
 import { Route, Link} from 'react-router-dom';
 import BlogPost from "./BlogPost";
 export default function Blog() {
 
+    const [ error, setError ] = useState(null);
+    const [ isLoaded, setIsLoaded ] = useState(false);
+    const [ items, setItems ] = useState([]);
+
+    const posts = [
+        {
+            title: "Seven Awesome Field Watches For Every Budget",
+            date: "January 01, 2021",
+            author: "Dixit Shah",
+            thumbnail: img1,
+            prgrphs: [
+                "A field watch may not enjoy the same celebrated status as dive watches in general, and I am yet to figure out why that is. Field watches or “infantry watches” are more often than not just as capable as their diver’s counterparts: they have the same impressive water resistance, the same focus on excellent legibility, and the same functionality with the frequent use of a rotating timing bezel, plus running seconds to confirm your watch is operational. However, they often do all this with less girth and at a more competitive price. It wouldn’t be much of a stretch to call field watches the ultimate tool watches for their utmost focus on function and lack of superfluous details. Last, but not least, they too can be as quirky as the quirkiest dive watches, if that’s your thing.",
+            ]
+        },
+        {
+            title: "The Essential Guide To Buying Watches Online",
+            date: "December 08, 2020",
+            author: "Dixit Shah",
+            thumbnail: img2,
+            prgrphs: [
+                "Buying a watch online is normally a very straightforward and simple process – provided you know exactly what you want to buy and precisely where you want to buy it. This guide is designed to help the many people who are understandably confused or even intimidated by the process of determining both how to choose a watch to buy online and some good options of where to buy it. This guide isn’t going to tell you the wristwatch decision that is right for you, nor is it going to recommend one retailer or sales channel where you’ll get the best service, price, or selection. Rather, the aBlogtoWatch guide to buying watches online is designed as a primer for helping you to understand the differences between various ways to shop online as well as pitfalls which are often easy to avoid if you know what to look out for.",
+            ]
+        },
+    ]
+
+    useEffect(() => {
+        setItems([]);
+        fetch("https://aurawatch-server.herokuapp.com/watches")
+            .then(rs => rs.json())
+            .then(
+                (result) => {
+                    setIsLoaded(true);
+                    setItems(result.slice(0, 3));
+                },
+                (error) => {
+                    setIsLoaded(true);
+                    setError(error);
+                }
+            )
+    }, [])
+
+    if (error) {
+        return <div>Error: {error.message}</div>
+    } else if (!isLoaded) {
+        return <div>Loading...</div>
+    } else
     return (
         <div className="Blog">
             <PageTitleBanner title={"Blog"}/>
@@ -21,149 +62,42 @@ export default function Blog() {
                         <div className="grid__columns-9">
                             <div className="post-wrapper">
                                 <ol className="post-list">
-                                    <li className="post-holder">
-                                        <a href="/#" className="post-img__links">
-                                            <img src={img1} alt="" className="post-img"/>
-                                        </a>
-                                        <div className="blog-data">
-                                            <div className="post-title-holder">
-                                                <h2 className="post-title">
-                                                    <a href="/#" className="post-title__link">Tizzy Watch Store</a>
-                                                </h2>
-                                            </div>
-                                            <div className="post-info">
-                                                <div className="post-posed">
-                                                    <span className="post-label">Posted:</span>
-                                                    <span className="post-value">January 08, 2017</span>
-                                                </div>
-                                                <div className="post-author">
-                                                    <span className="post-label">Author:</span>
-                                                    <span className="post-value">
-                                                    <a href="/#" className="post-value__link">Dixit Shah</a>
-                                                </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="post-text">
-                                            <p className="post-text-detail">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                                It has survived not only five centuries, but also the leap into electronic typesetting,
-                                                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
-                                            </p>
-                                        </div>
-                                        <Link to="/blog/1" className="post-read-more">Read More >></Link>
-                                        <hr/>
-                                    </li>
-                                    <li className="post-holder">
-                                        <a href="/#" className="post-img__links">
-                                            <img src={img2} alt="" className="post-img"/>
-                                        </a>
-                                        <div className="blog-data">
-                                            <div className="post-title-holder">
-                                                <h2 className="post-title">
-                                                    <a href="/#" className="post-title__link">Tizzy Watch Store</a>
-                                                </h2>
-                                            </div>
-                                            <div className="post-info">
-                                                <div className="post-posed">
-                                                    <span className="post-label">Posted:</span>
-                                                    <span className="post-value">January 08, 2017</span>
-                                                </div>
-                                                <div className="post-author">
-                                                    <span className="post-label">Author:</span>
-                                                    <span className="post-value">
-                                                    <a href="/#" className="post-value__link">Dixit Shah</a>
-                                                </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="post-text">
-                                            <p className="post-text-detail">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                                It has survived not only five centuries, but also the leap into electronic typesetting,
-                                                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
-                                            </p>
-                                        </div>
-                                        <a href="/#" className="post-read-more">Read More >></a>
-                                        <hr/>
-                                    </li>
-                                    <li className="post-holder">
-                                        <a href="/#" className="post-img__links">
-                                            <img src={img3} alt="" className="post-img"/>
-                                        </a>
-                                        <div className="blog-data">
-                                            <div className="post-title-holder">
-                                                <h2 className="post-title">
-                                                    <a href="/#" className="post-title__link">Tizzy Watch Store</a>
-                                                </h2>
-                                            </div>
-                                            <div className="post-info">
-                                                <div className="post-posed">
-                                                    <span className="post-label">Posted:</span>
-                                                    <span className="post-value">January 08, 2017</span>
-                                                </div>
-                                                <div className="post-author">
-                                                    <span className="post-label">Author:</span>
-                                                    <span className="post-value">
-                                                    <a href="/#" className="post-value__link">Dixit Shah</a>
-                                                </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="post-text">
-                                            <p className="post-text-detail">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                                It has survived not only five centuries, but also the leap into electronic typesetting,
-                                                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
-                                            </p>
-                                        </div>
-                                        <a href="/#" className="post-read-more">Read More >></a>
-                                        <hr/>
-                                    </li>
-                                    <li className="post-holder">
-                                        <a href="/#" className="post-img__links">
-                                            <img src={img4} alt="" className="post-img"/>
-                                        </a>
-                                        <div className="blog-data">
-                                            <div className="post-title-holder">
-                                                <h2 className="post-title">
-                                                    <a href="/#" className="post-title__link">Tizzy Watch Store</a>
-                                                </h2>
-                                            </div>
-                                            <div className="post-info">
-                                                <div className="post-posed">
-                                                    <span className="post-label">Posted:</span>
-                                                    <span className="post-value">January 08, 2017</span>
-                                                </div>
-                                                <div className="post-author">
-                                                    <span className="post-label">Author:</span>
-                                                    <span className="post-value">
-                                                    <a href="/#" className="post-value__link">Dixit Shah</a>
-                                                </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="post-text">
-                                            <p className="post-text-detail">
-                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                                It has survived not only five centuries, but also the leap into electronic typesetting,
-                                                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
-                                                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem ipsum
-                                            </p>
-                                        </div>
-                                        <a href="/#" className="post-read-more">Read More >></a>
-                                    </li>
+                                    {
+                                        posts.map((post, i) => {
+                                            return (
+
+                                                <li key={i} className="post-holder">
+                                                    <Link to="/blog/1" className="post-img__links">
+                                                        <img src={post.thumbnail} alt="" className="post-img"/>
+                                                    </Link>
+                                                    <div className="blog-data">
+                                                        <div className="post-title-holder">
+                                                            <h2 className="post-title">
+                                                                <Link to="/blog/1" className="post-title__link">{post.title}</Link>
+                                                            </h2>
+                                                        </div>
+                                                        <div className="post-info">
+                                                            <div className="post-posed">
+                                                                <span className="post-label">Posted:</span>
+                                                                <span className="post-value">{post.date}</span>
+                                                            </div>
+                                                            <div className="post-author">
+                                                                <span className="post-label">Author:</span>
+                                                                <span className="post-value">
+                                                                    <Link to="/blog" className="post-value__link">{post.author}</Link>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="post-text">
+                                                        <p className="post-text-detail">{post.prgrphs[0]}</p>
+                                                    </div>
+                                                    <Link to="/blog/1" className="post-read-more">Read More >></Link>
+                                                    <hr/>
+                                                </li>
+                                            )
+                                        })
+                                    }
                                 </ol>
                             </div>
                         </div>
@@ -179,60 +113,30 @@ export default function Blog() {
                                 <div className="category__heading">NEW PRODUCT</div>
                                 <div className="block-content">
                                     <ul className="product-items">
-                                        <li className="product-item">
-                                            <div className="product-item-info">
-                                                <a href="/#" className="product-item__photo">
-                                                    <img src={img5} width={80} height={90} alt="" className="photo-img"/>
-                                                </a>
-                                                <div className="product-item-details">
-                                                    <div className="product-item-detail">
-                                                        <strong className="product-item-name">
-                                                            <a href="" className="product-item-link">Tizzy Watch Ipsum</a>
-                                                        </strong>
-                                                    </div>
-                                                    <span className="price-box">$129.00</span>
-                                                    <div className="product-item-inner">
-                                                        <a href="" className="product-item-primary">Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="product-item">
-                                            <div className="product-item-info">
-                                                <a href="/#" className="product-item__photo">
-                                                    <img src={img6} width={80} height={90} alt="" className="photo-img"/>
-                                                </a>
-                                                <div className="product-item-details">
-                                                    <div className="product-item-detail">
-                                                        <strong className="product-item-name">
-                                                            <a href="" className="product-item-link">Tizzy Watch Ipsum</a>
-                                                        </strong>
-                                                    </div>
-                                                    <span className="price-box">$129.00</span>
-                                                    <div className="product-item-inner">
-                                                        <a href="" className="product-item-primary">Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li className="product-item">
-                                            <div className="product-item-info">
-                                                <a href="/#" className="product-item__photo">
-                                                    <img src={img7} width={80} height={90} alt="" className="photo-img"/>
-                                                </a>
-                                                <div className="product-item-details">
-                                                    <div className="product-item-detail">
-                                                        <strong className="product-item-name">
-                                                            <a href="" className="product-item-link">Tizzy Watch Ipsum</a>
-                                                        </strong>
-                                                    </div>
-                                                    <span className="price-box">$129.00</span>
-                                                    <div className="product-item-inner">
-                                                        <a href="" className="product-item-primary">Add To Cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        {
+                                            items.map((item, i) => {
+                                                return (
+                                                    <li key={i} className="product-item">
+                                                        <div className="product-item-info">
+                                                            <Link to={`/watches/${item.coll}-${item.name}`} className="product-item__photo">
+                                                                <img src={`/images/${item.name.toLowerCase()}_1.jpeg`} width={80} height={90} alt="" className="photo-img"/>
+                                                            </Link>
+                                                            <div className="product-item-details">
+                                                                <div className="product-item-detail">
+                                                                    <strong className="product-item-name">
+                                                                        <Link to={`/watches/${item.coll}-${item.name}`} className="product-item-link">{item.coll + " " + item.name}</Link>
+                                                                    </strong>
+                                                                </div>
+                                                                <span className="price-box">${item.price}.00</span>
+                                                                <div className="product-item-inner">
+                                                                    <Link to="/blog" className="product-item-primary">Add To Cart</Link>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                )
+                                            })
+                                        }
                                     </ul>
                                 </div>
                             </nav>
@@ -240,23 +144,23 @@ export default function Blog() {
                                 <h3 className="category__heading">RECENT POSTS</h3>
                                 <ul className="category-list">
                                     <li className="category-item">
-                                        <a href="/" className="category-item__link">Tizzy Watch Store</a>
+                                        <Link to="/blog/1" className="category-item__link">The Essential Guide to Buying Watches Online</Link>
                                     </li>
                                     <li className="category-item">
-                                        <a href="/" className="category-item__link">Tizzy Watch Handle</a>
+                                        <Link to="/blog/1" className="category-item__link">Seven Awesome Field Watches For Every Budget</Link>
                                     </li>
                                     <li className="category-item">
-                                        <a href="/" className="category-item__link">Tizzy Ring Watch</a>
+                                        <Link to="/blog/1" className="category-item__link">Is There An Ideal Size For Your Collection</Link>
                                     </li>
                                     <li className="category-item">
-                                        <a href="/" className="category-item__link">Lorem Ipsum Tizzy</a>
+                                        <Link to="/blog/1" className="category-item__link">The Essential Guide to Buying Watches Online</Link>
                                     </li>
                                 </ul>
                             </nav>
                             <nav className="category">
                                 <h3 className="category__heading">ARCHIVE</h3>
                                 <div className="filter">
-                                    <a href="/#" className="category__heading-option">January 2017</a>
+                                    <a href="/#" className="category__heading-option">Jan 2020</a>
                                 </div>
                             </nav>
                         </div>
