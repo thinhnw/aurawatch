@@ -40,7 +40,6 @@ export default function ProductsListing() {
     const [ error, setError ] = useState(null);
     const [ isLoaded, setIsLoaded ] = useState(false);
     const [ order, setOrder ] = useState("");
-    const [ priceList, setPriceList ] = useState("");
 
     const handleChange = (event, value) => {
         scrollTop();
@@ -61,14 +60,12 @@ export default function ProductsListing() {
     useEffect(() => {
 
         setItems([]);
-        setPriceList("");
         fetch("https://aurawatch-server.herokuapp.com/watches")
             .then(res => res.json())
             .then(
                 (result) => {
                     setIsLoaded(true);
                     setItems(items => [ ...items, ...result ]);
-                    handlePriceList();
                 },
                 (error) => {
                     setIsLoaded(true);
@@ -77,14 +74,23 @@ export default function ProductsListing() {
             )
     }, []);
 
+    const downloadToFile = (content, filename, contentType) => {
+        const a = document.createElement('a');
+        const file = new Blob([content], {type: contentType});
+
+        a.href= URL.createObjectURL(file);
+        a.download = filename;
+        a.click();
+
+        URL.revokeObjectURL(a.href);
+    };
     const handlePriceList = () => {
 
-        let priceListTemp = "";
+        let priceList= "";
         items.forEach(item => {
-            priceListTemp += item.coll + " " + item.name + " $" + item.price + ".00\n";
+            priceList += item.coll + " " + item.name + " $" + item.price + ".00\n";
         })
-        setPriceList(priceListTemp);
-        console.log(priceList);
+        downloadToFile(priceList, 'price-list.doc', 'text/plain');
     }
     const handleURLChange = (pageNum) => {
 
@@ -184,7 +190,7 @@ export default function ProductsListing() {
                     <div className="grid__columns-9">
                         <div className="toolbar">
                             <div className="priceList">
-                                <a href="index.html" download>Get the price list</a>
+                                <p onClick={handlePriceList}>Get the price list</p>
                             </div>
                             <div className="toolbar-sorter sorter">
                                 <FormControl className={classes.formControl}>
