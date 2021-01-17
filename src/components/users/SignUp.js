@@ -3,7 +3,6 @@ import './css/Users.css';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import {Link} from "react-router-dom";
 import PageTitleBanner from "../partials/PageTitleBanner";
 
 const useStyles = makeStyles((theme) => ({
