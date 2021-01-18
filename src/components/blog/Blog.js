@@ -48,11 +48,46 @@ export default function Blog() {
             )
     }, [])
 
-    if (error) {
-        return <div>Error: {error.message}</div>
-    } else if (!isLoaded) {
-        return <div>Loading...</div>
-    } else
+    const NewProducts = () => {
+        if (error) {
+            return <div>Error: {error.message}</div>
+        } else if (!isLoaded) {
+            return <div>Loading...</div>
+        } else {
+            return (
+                <ul className="product-items">
+                    {
+                        items.map((item, i) => {
+                            return (
+                                <li key={i} className="product-item">
+                                    <div className="product-item-info">
+                                        <Link to={`/watches/${item.coll}-${item.name}`} className="product-item__photo">
+                                            <img src={`/images/${item.name.toLowerCase()}_1.jpeg`} width={80}
+                                                 height={90} alt="" className="photo-img"/>
+                                        </Link>
+                                        <div className="product-item-details">
+                                            <div className="product-item-detail">
+                                                <strong className="product-item-name">
+                                                    <Link to={`/watches/${item.coll}-${item.name}`}
+                                                          className="product-item-link">{item.coll + " " + item.name}</Link>
+                                                </strong>
+                                            </div>
+                                            <span className="price-box">${item.price}.00</span>
+                                            <div className="product-item-inner">
+                                                <Link to="/blog" className="product-item-primary">Add To Cart</Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            )
+
+
+        }
+    }
     return (
         <div className="Blog">
             <PageTitleBanner title={"Blog"}/>
@@ -112,32 +147,7 @@ export default function Blog() {
                             <nav className="category">
                                 <div className="category__heading">NEW PRODUCT</div>
                                 <div className="block-content">
-                                    <ul className="product-items">
-                                        {
-                                            items.map((item, i) => {
-                                                return (
-                                                    <li key={i} className="product-item">
-                                                        <div className="product-item-info">
-                                                            <Link to={`/watches/${item.coll}-${item.name}`} className="product-item__photo">
-                                                                <img src={`/images/${item.name.toLowerCase()}_1.jpeg`} width={80} height={90} alt="" className="photo-img"/>
-                                                            </Link>
-                                                            <div className="product-item-details">
-                                                                <div className="product-item-detail">
-                                                                    <strong className="product-item-name">
-                                                                        <Link to={`/watches/${item.coll}-${item.name}`} className="product-item-link">{item.coll + " " + item.name}</Link>
-                                                                    </strong>
-                                                                </div>
-                                                                <span className="price-box">${item.price}.00</span>
-                                                                <div className="product-item-inner">
-                                                                    <Link to="/blog" className="product-item-primary">Add To Cart</Link>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                )
-                                            })
-                                        }
-                                    </ul>
+                                    <NewProducts />
                                 </div>
                             </nav>
                             <nav className="category">
