@@ -16,7 +16,6 @@ export default function ProductPhotoContainer(props) {
     function handleClick(event) {
 
         let allClasses = event.target.className;
-        console.log(allClasses);
         if (allClasses.indexOf("0") > 0) setIndex(0);
         else if (allClasses.indexOf("1") > 0) setIndex(1);
         else if (allClasses.indexOf("2") > 0) setIndex(2);

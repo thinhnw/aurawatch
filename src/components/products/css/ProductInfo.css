@@ -73,6 +73,17 @@
     display: inline-block;
     margin-right: 2px;
 }
+.ProductInfo_download {
+    padding: 5.5px 15px 14px;
+}
+.ProductInfo_download:hover {
+    background: #f5f5f5;
+    color: #737373;
+}
+.ProductInfo_download-icon {
+    position: relative;
+    top: 5px;
+}
 .ProductInfo_label:hover {
     cursor: pointer;
 }
