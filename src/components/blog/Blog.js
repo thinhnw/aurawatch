@@ -170,7 +170,8 @@ export default function Blog() {
                             <nav className="category">
                                 <h3 className="category__heading">ARCHIVE</h3>
                                 <div className="filter">
-                                    <a href="/#" className="category__heading-option">Jan 2020</a>
+                                    <Link to="/blog" className="category__heading-option">Jan 2021</Link>
+                                    <Link to="/blog" className="category__heading-option">Dec 2020</Link>
                                 </div>
                             </nav>
                         </div>
