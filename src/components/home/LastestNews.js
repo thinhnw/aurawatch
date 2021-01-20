@@ -4,14 +4,17 @@ import img1 from './images/news_1.jpeg';
 import img2 from './images/news_2.jpeg';
 import img3 from './images/news_3.jpeg';
 import img4 from './images/news_4.jpeg';
-import {Link} from "react-router-dom";
+import {
+    Link,
+    useHistory
+} from "react-router-dom";
 
 export default function LatestNews(props) {
 
     const news = [
         {
             img: img1,
-            title: "Seven Awesome Field Watches For Every Budget",
+            title: "Watch Education - Water Resistance",
             text: ""
         },
         {
@@ -33,6 +36,7 @@ export default function LatestNews(props) {
 
     const [ index, setIndex ] = React.useState(0);
     const [ active, setActive ] = React.useState(0);
+    const history = useHistory();
 
     function indexAfter(i) {
         if ( i === news.length - 1) return 0;
@@ -66,6 +70,9 @@ export default function LatestNews(props) {
     function handleMouseOutRight() {
         setActive(0);
     }
+    function handleClick() {
+        history.push('/blog/1');
+    }
     return (
         <div className="LatestNews">
             <div className="LatestNews_container">
@@ -74,9 +81,9 @@ export default function LatestNews(props) {
                     <button className="LatestNews-prev" onClick={handlePrev}> </button>
                     <button className="LatestNews-next" onClick={handleNext}> </button>
                 </div>
-                <div className="LatestNews_news LatestNews_news-left" onMouseOver={handleMouseOverLeft} onMouseOut={handleMouseOutLeft}>
+                <div className="LatestNews_news LatestNews_news-left" onClick={handleClick} onMouseOver={handleMouseOverLeft} onMouseOut={handleMouseOutLeft}>
                     <Link to="/blog/1">
-                        <img src={news[index].img} alt=""/>
+                        <img src={news[index].img} alt="" />
                     </Link>
                     <div className="text-outer">
                         <div className={"text " + ((active === 1) && "active") }>
@@ -86,10 +93,10 @@ export default function LatestNews(props) {
                     </div>
                 </div>
 
-                <div className="LatestNews_news LatestNews_news-right" onMouseOver={handleMouseOverRight} onMouseOut={handleMouseOutRight}>
-                    <a href="/#">
+                <div className="LatestNews_news LatestNews_news-right" onClick={handleClick} onMouseOver={handleMouseOverRight} onMouseOut={handleMouseOutRight}>
+                    <Link to="/blog/1">
                         <img src={news[indexAfter(index)].img} alt=""/>
-                    </a>
+                    </Link>
                     <div className="text-outer">
                         <div className={"text " + (active === 2 && "active")}>
                             <h3 className="title">{ news[indexAfter(index)].title }</h3>
