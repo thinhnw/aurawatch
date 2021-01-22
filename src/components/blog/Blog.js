@@ -169,10 +169,14 @@ export default function Blog() {
                             </nav>
                             <nav className="category">
                                 <h3 className="category__heading">ARCHIVE</h3>
-                                <div className="filter">
-                                    <Link to="/blog" className="category__heading-option">Jan 2021</Link>
-                                    <Link to="/blog" className="category__heading-option">Dec 2020</Link>
-                                </div>
+                                <ul className="category-list">
+                                    <li className="category-item">
+                                        <Link to="/blog" className="category__heading-option">Jan 2021</Link>
+                                    </li>
+                                    <li className="category-item">
+                                        <Link to="/blog" className="category__heading-option">Dec 2020</Link>
+                                    </li>
+                                </ul>
                             </nav>
                         </div>
                     </div>

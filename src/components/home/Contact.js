@@ -26,6 +26,19 @@ export default function Contact() {
                                 <p>Phone: +84 24 7300 8855 </p>
                                 <p>Address: 8A Ton That Thuyet, My Dinh, Nam Tu Liem, Hanoi 100000, Vietnam</p>
                             </div>
+                            <div className="Contact_form-container">
+                                <form action="" className="Contact_form">
+                                    <div className="Contact_form-control">
+                                        <input required type="email" name="email" placeholder="Your Email"/>
+                                    </div>
+                                    <div className="Contact_form-control">
+                                        <textarea name="msg" cols="30" rows="10" placeholder="Your Comment" required> </textarea>
+                                    </div>
+                                    <div className="Contact_form-control">
+                                        <button>Submit</button>
+                                    </div>
+                                </form>
+                            </div>
                         </Grid>
                         <Grid item xs={6}>
                             <div className="Contact_map">

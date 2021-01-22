@@ -22,3 +22,23 @@
 .Contact_Info a:hover {
     color: #000;
 }
+.Contact_form-control textarea{
+    width: 100%;
+    border: 1px #ddd solid;
+    margin-bottom: 16px ;
+    resize: none;
+    padding: 16px;
+}
+.Contact_form-control input {
+    padding: 16px;
+    width: 100%;
+    border: 1px #ddd solid;
+    margin-bottom: 16px;
+}
+.Contact_form-control button {
+    padding: 16px;
+    border: 1px #ddd solid;
+    color: #878787;
+    width: 100%;
+    cursor: pointer;
+}

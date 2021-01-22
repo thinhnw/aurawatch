@@ -8,16 +8,16 @@ export default function CheckOutForm() {
             <h1>Customer Information</h1>
             <form action="">
                 <div className="CheckOut_form-control">
-                    <input type="text" name="name" placeholder="Your Name"/>
+                    <input type="text" name="name" placeholder="Your Name" required/>
                 </div>
                 <div className="CheckOut_form-control">
-                    <input type="email" name="email" placeholder="Email"/>
+                    <input type="email" name="email" placeholder="Email"required/>
                 </div>
                 <div className="CheckOut_form-control">
-                    <input type="text" name="phone" placeholder="Phone"/>
+                    <input type="text" name="phone" placeholder="Phone"required/>
                 </div>
                 <div className="CheckOut_form-control">
-                    <textarea name="address" cols="30" rows="3" placeholder="Shipping Address">
+                    <textarea name="address" cols="30" rows="3" placeholder="Shipping Address"required>
 
                     </textarea>
                 </div>

@@ -56,7 +56,7 @@ export default function ProductInfo(props) {
             <form action="">
                 <div className="ProductInfo_form-control">
                     <label htmlFor="qty">QTY</label>
-                    <input type="number" name="qty" id="qty" min={0}/>
+                    <input type="number" name="qty" id="qty" min={0} value={1}/>
                 </div>
                 <div className="ProductInfo_form-control">
                     <button className=" ProductInfo_primary-button">
