@@ -28,6 +28,7 @@
     background: rgba(0, 0, 0, 0);
 }
 .dsc button {
+    outline: none;
     padding: 8px 16px;
     border-radius: 25px;
     border: none;
@@ -36,6 +37,7 @@
 }
 .dsc button:hover {
     background-color: #878787;
+    cursor: pointer;
 }
 .dsc h2 {
     font-weight: 300;
