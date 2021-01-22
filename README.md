@@ -1,6 +1,8 @@
 # AURA WATCHES
 Front-end Project using ReactJS/MaterialUI
 
+Demo link: [http://aurawatch.herokuapp.com]
+
 ## User guide
 Step 1: Clone this repository
 
