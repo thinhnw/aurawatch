@@ -147,7 +147,7 @@ export default function ProductsListing() {
     }
 
     if (error) { return <div>Error: {error.message}</div>}
-    else if (!isLoaded) { return <div>Loading...</div>}
+    else if (!isLoaded) { return <div> </div>}
     else
         return (
             <div className="ProductsListing">
