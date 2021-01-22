@@ -27,22 +27,22 @@ export default function ShopBySize() {
         {
             img: "smallImage",
             name: "Small",
-            dsc: "Many desktop publishing packages and web page editors now Internet"
+            dsc: "Small-size watches are suitable for wrists that are from 6 to 7 inches"
         },
         {
             img: "mediumImage",
             name: "Medium",
-            dsc: "Many desktop publishing packages and web page editors now Internet"
+            dsc: "Medium-size watches are suitable for wrists that are from 6 to 7 inches"
         },
         {
             img: "largeImage",
             name: "Large",
-            dsc: "Many desktop publishing packages and web page editors now Internet"
+            dsc: "Large-size watches are suitable for wrists that are from 7 to 8 inches"
         },
         {
             img: "xlargeImage",
             name: "X-Large",
-            dsc: "Many desktop publishing packages and web page editors now Internet"
+            dsc: "Xtra large-size watches are suitable for wrists that are more than 8 inches"
         },
     ];
 
@@ -60,7 +60,7 @@ export default function ShopBySize() {
                     <Grid item xs={12}>
                         <div className="ShopBySize_title">
                             <h3 className={"title"}>WATCH BY SIZE</h3>
-                            <p className={"dsc"}>Many desktop publishing packages and web page editors now Internet tend to repeat predefined chunks as necessary,</p>
+                            <p className={"dsc"}>As human beings we are drawn towards natural balance. Generally speaking if you have a smaller wrist, you will want a smaller watch. If you have a larger wrist you will want a larger watch. </p>
                         </div>
                     </Grid>
                     {

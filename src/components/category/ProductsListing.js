@@ -39,12 +39,11 @@ export default function ProductsListing() {
     const [ items, setItems ] = useState([]);
     const [ error, setError ] = useState(null);
     const [ isLoaded, setIsLoaded ] = useState(false);
-    const [ order, setOrder ] = useState(0);
+    const [ order, setOrder ] = useState("");
 
     const handleChange = (event, value) => {
+        scrollTop();
         setPage(value);
-        console.log('page', value);
-
         let path = window.location.pathname.indexOf("page");
         if (path === -1) history.push(window.location.pathname + "?page=" + value);
         else {
@@ -52,6 +51,10 @@ export default function ProductsListing() {
             path.slice(0, path.length - 1);
             history.push(path + value);
         }
+    };
+
+    const scrollTop = () =>{
+        window.scrollTo({top: 0, behavior: 'smooth'});
     };
 
     useEffect(() => {
@@ -69,17 +72,36 @@ export default function ProductsListing() {
                     setError(error);
                 }
             )
-        return function cleanup() {
-            setPage(1);
-        }
     }, []);
 
-    function MainComp() {
+    const downloadToFile = (content, filename, contentType) => {
+        const a = document.createElement('a');
+        const file = new Blob([content], {type: contentType});
+
+        a.href= URL.createObjectURL(file);
+        a.download = filename;
+        a.click();
+
+        URL.revokeObjectURL(a.href);
+    };
+    const handlePriceList = () => {
+
+        let priceList= "";
+        items.forEach(item => {
+            priceList += item.coll + " " + item.name + " $" + item.price + ".00\n";
+        })
+        downloadToFile(priceList, 'price-list.doc', 'text/plain');
+    }
+    const handleURLChange = (pageNum) => {
+
+        setPage(pageNum);
+    }
+    function MainComp(props) {
 
         let { coll = "" } = useParams();
         const search = useLocation().search;
         const num = parseInt(new URLSearchParams(search).get('page')) || 1;
-        setPage(num);
+        props.onURLChange(num);
         let displayItems = items;
 
         if (coll === "" || coll === "sale") {}
@@ -118,7 +140,8 @@ export default function ProductsListing() {
         )
     }
 
-    function handleSelect(event) {
+
+    const handleSelect = (event) => {
 
         setOrder(event.target.value)
     }
@@ -165,31 +188,36 @@ export default function ProductsListing() {
                         </nav>
                     </div>
                     <div className="grid__columns-9">
-                        <div className="toolbar-sorter sorter">
-                            <FormControl className={classes.formControl}>
-                                <InputLabel id="demo-simple-select-helper-label">Sort by</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-helper-label"
-                                    id="demo-simple-select-helper"
-                                    value={order}
-                                    onChange={handleSelect}
-                                >
-                                    <MenuItem value="">
-                                        <em>None</em>
-                                    </MenuItem>
-                                    <MenuItem value={1}>Price: Low to High</MenuItem>
-                                    <MenuItem value={2}>Price: High to Low</MenuItem>
-                                </Select>
-                            </FormControl>
-
+                        <div className="toolbar">
+                            <div className="priceList">
+                                <p onClick={handlePriceList}>Get the price list</p>
+                            </div>
+                            <div className="toolbar-sorter sorter">
+                                <FormControl className={classes.formControl}>
+                                    <InputLabel id="demo-simple-select-helper-label">Sort by</InputLabel>
+                                    <Select
+                                        labelId="demo-simple-select-helper-label"
+                                        id="demo-simple-select-helper"
+                                        value={order}
+                                        onChange={handleSelect}
+                                    >
+                                        <MenuItem value="">
+                                            <em>None</em>
+                                        </MenuItem>
+                                        <MenuItem value={1}>Price: Low to High</MenuItem>
+                                        <MenuItem value={2}>Price: High to Low</MenuItem>
+                                    </Select>
+                                </FormControl>
+                            </div>
                         </div>
-
                         <div className="home-product">
 
                             <Route exact path={["/category",
                                 "/category?page=num",
                                 "/category/:coll",
-                                "/category/:coll?page=num"]} component={MainComp} />
+                                "/category/:coll?page=num"]}>
+                                <MainComp onURLChange={handleURLChange}/>
+                            </Route>
                             <div className="grid__row">
                                 <div className={classes.root}>
                                     <Pagination count={3} page={page} onChange={handleChange} />

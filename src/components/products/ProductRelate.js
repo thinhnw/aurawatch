@@ -27,7 +27,6 @@ export default function ProductRelate(props) {
                 (result) => {
                     setIsLoaded(true);
                     let cnt = 0;
-                    console.log(result)
                     result.forEach(x => {
                         if (x.gender === gender && cnt < 4) {
                             setItems(items => [ ...items, x ]);

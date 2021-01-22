@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './css/Blog.css';
-import img1 from './images/1_1.jpg';
+import img1 from './images/wr_proofvsres_proofvsres.jpeg';
 import img2 from './images/2_3.jpg';
 import PageTitleBanner from "../partials/PageTitleBanner";
 import { Route, Link} from 'react-router-dom';
@@ -13,18 +13,18 @@ export default function Blog() {
 
     const posts = [
         {
-            title: "Seven Awesome Field Watches For Every Budget",
+            title: "Watch Education - Water Resistance",
             date: "January 01, 2021",
-            author: "Dixit Shah",
+            author: "Benjamin Cucumbersome",
             thumbnail: img1,
             prgrphs: [
-                "A field watch may not enjoy the same celebrated status as dive watches in general, and I am yet to figure out why that is. Field watches or “infantry watches” are more often than not just as capable as their diver’s counterparts: they have the same impressive water resistance, the same focus on excellent legibility, and the same functionality with the frequent use of a rotating timing bezel, plus running seconds to confirm your watch is operational. However, they often do all this with less girth and at a more competitive price. It wouldn’t be much of a stretch to call field watches the ultimate tool watches for their utmost focus on function and lack of superfluous details. Last, but not least, they too can be as quirky as the quirkiest dive watches, if that’s your thing.",
+                "While “water resistance” is a fairly common feature of most watches, there is a lot more to it than most people are aware of. Whether you’re a diving enthusiast, headed for a beach vacation, or just curious about water resistance, the experts at Aura Watch offer their advice and recommended precautions to help you keep your watch safe and protected for years to come.\n",
             ]
         },
         {
             title: "The Essential Guide To Buying Watches Online",
             date: "December 08, 2020",
-            author: "Dixit Shah",
+            author: "Burgerking Camouflage",
             thumbnail: img2,
             prgrphs: [
                 "Buying a watch online is normally a very straightforward and simple process – provided you know exactly what you want to buy and precisely where you want to buy it. This guide is designed to help the many people who are understandably confused or even intimidated by the process of determining both how to choose a watch to buy online and some good options of where to buy it. This guide isn’t going to tell you the wristwatch decision that is right for you, nor is it going to recommend one retailer or sales channel where you’ll get the best service, price, or selection. Rather, the aBlogtoWatch guide to buying watches online is designed as a primer for helping you to understand the differences between various ways to shop online as well as pitfalls which are often easy to avoid if you know what to look out for.",
@@ -48,11 +48,46 @@ export default function Blog() {
             )
     }, [])
 
-    if (error) {
-        return <div>Error: {error.message}</div>
-    } else if (!isLoaded) {
-        return <div>Loading...</div>
-    } else
+    const NewProducts = () => {
+        if (error) {
+            return <div>Error: {error.message}</div>
+        } else if (!isLoaded) {
+            return <div>Loading...</div>
+        } else {
+            return (
+                <ul className="product-items">
+                    {
+                        items.map((item, i) => {
+                            return (
+                                <li key={i} className="product-item">
+                                    <div className="product-item-info">
+                                        <Link to={`/watches/${item.coll}-${item.name}`} className="product-item__photo">
+                                            <img src={`/images/${item.name.toLowerCase()}_1.jpeg`} width={80}
+                                                 height={90} alt="" className="photo-img"/>
+                                        </Link>
+                                        <div className="product-item-details">
+                                            <div className="product-item-detail">
+                                                <strong className="product-item-name">
+                                                    <Link to={`/watches/${item.coll}-${item.name}`}
+                                                          className="product-item-link">{item.coll + " " + item.name}</Link>
+                                                </strong>
+                                            </div>
+                                            <span className="price-box">${item.price}.00</span>
+                                            <div className="product-item-inner">
+                                                <Link to="/blog" className="product-item-primary">Add To Cart</Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            )
+
+
+        }
+    }
     return (
         <div className="Blog">
             <PageTitleBanner title={"Blog"}/>
@@ -112,39 +147,14 @@ export default function Blog() {
                             <nav className="category">
                                 <div className="category__heading">NEW PRODUCT</div>
                                 <div className="block-content">
-                                    <ul className="product-items">
-                                        {
-                                            items.map((item, i) => {
-                                                return (
-                                                    <li key={i} className="product-item">
-                                                        <div className="product-item-info">
-                                                            <Link to={`/watches/${item.coll}-${item.name}`} className="product-item__photo">
-                                                                <img src={`/images/${item.name.toLowerCase()}_1.jpeg`} width={80} height={90} alt="" className="photo-img"/>
-                                                            </Link>
-                                                            <div className="product-item-details">
-                                                                <div className="product-item-detail">
-                                                                    <strong className="product-item-name">
-                                                                        <Link to={`/watches/${item.coll}-${item.name}`} className="product-item-link">{item.coll + " " + item.name}</Link>
-                                                                    </strong>
-                                                                </div>
-                                                                <span className="price-box">${item.price}.00</span>
-                                                                <div className="product-item-inner">
-                                                                    <Link to="/blog" className="product-item-primary">Add To Cart</Link>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                )
-                                            })
-                                        }
-                                    </ul>
+                                    <NewProducts />
                                 </div>
                             </nav>
                             <nav className="category">
                                 <h3 className="category__heading">RECENT POSTS</h3>
                                 <ul className="category-list">
                                     <li className="category-item">
-                                        <Link to="/blog/1" className="category-item__link">The Essential Guide to Buying Watches Online</Link>
+                                        <Link to="/blog/1" className="category-item__link">Watch Education - Water Resistance</Link>
                                     </li>
                                     <li className="category-item">
                                         <Link to="/blog/1" className="category-item__link">Seven Awesome Field Watches For Every Budget</Link>

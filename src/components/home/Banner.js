@@ -9,7 +9,6 @@ export default function Banner() {
 
 	let slides = [ mainBannerA, mainBannerB, mainBannerC ];
 	const [ currentSlide, setCurrentSlide ] = useState(0);
-	let auto;
 
 	function handleNext() {
 		setCurrentSlide( currentSlide + 1 >= slides.length ? 0 : currentSlide + 1);

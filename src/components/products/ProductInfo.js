@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './css/ProductInfo.css';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-
+import GetAppIcon from '@material-ui/icons/GetApp';
 export default function ProductInfo(props) {
 
     const [ activeTab, setActiveTab ] = useState(0);
@@ -14,6 +14,34 @@ export default function ProductInfo(props) {
     }
     function showPlc(){
         setActiveTab(2);
+    }
+
+    const downloadToFile = (content, filename, contentType) => {
+        const a = document.createElement('a');
+        const file = new Blob([content], {type: contentType});
+
+        a.href= URL.createObjectURL(file);
+        a.download = filename;
+        a.click();
+
+        URL.revokeObjectURL(a.href);
+    };
+
+    const handleDownload = () => {
+
+        let content = "";
+        content += "Collection: " + props.coll + "\n";
+        content += "Name: " + props.name+ "\n";
+        content += "Price: " + props.price+ "\n";
+        content +=
+            "Size: 40MM\n" +
+        "Thickness: 7MM\n" +
+        "Color: BLACK\n" +
+        "Mechanic: MIYOTA QUARTZ\n" +
+        "Strap: 20MM\n" +
+        "Water resistance: 3ATM\n" +
+        "Glass: SAPPHIRE"
+        downloadToFile(content, props.coll + "-" + props.name + ".doc", "text/plain")
     }
 
     return (
@@ -47,6 +75,9 @@ export default function ProductInfo(props) {
                        onClick={showTech}>Technical</p>
                     <p className={"ProductInfo_label ProductInfo_label-return " + (activeTab === 2? "ProductInfo_label-active" : "")}
                        onClick={showPlc}>Return Policy</p>
+                    <p className="ProductInfo_label ProductInfo_download" onClick={handleDownload}>
+                        <span><GetAppIcon className="ProductInfo_download-icon" /></span>
+                    </p>
                 </div>
                 <div className={"ProductInfo_tab ProductInfo_tab-shipping " + (activeTab === 0 ? "ProductInfo_tab-active" : "" )}>
                     <p>

@@ -44,10 +44,6 @@ function Child ()  {
     if (fullName) {
         [ item.coll, item.name ] = fullName.split('-');
     }
-    console.log(fullName);
-
-    const location = useLocation();
-    console.log(location.pathname);
 
     useEffect(() => {
         fetch("https://aurawatch-server.herokuapp.com/watches")
@@ -58,7 +54,6 @@ function Child ()  {
                     result.forEach((x) => {
                         if (x.coll === item.coll && x.name === item.name) {
                             setItem(x);
-                            console.log(x);
                         }
                     })
                 },

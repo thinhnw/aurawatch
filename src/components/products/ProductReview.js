@@ -4,7 +4,6 @@ import author1 from './images/testimonial_img1.jpeg';
 import author2 from './images/testimonial_img2.jpeg';
 import author3 from './images/testimonial_img3.jpeg';
 
-import StarOutlineOutlinedIcon from '@material-ui/icons/StarOutlineOutlined';
 import StarIcon from '@material-ui/icons/Star';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
