@@ -1,5 +1,4 @@
 .ProductPhotoContainer_main {
-
     position: relative;
 }
 .ProductPhotoContainer_main-inner {
@@ -58,5 +57,4 @@
 }
 .ProductPhotoContainer_main:hover .ProductPhoto-prev {
     display: block;
-
 }
