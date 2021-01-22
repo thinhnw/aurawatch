@@ -1,6 +1,7 @@
 # AURA WATCHES
-Front-end Project using ReactJS/MaterialUI
+An e-commerce website selling watches
 
+This is a front-end project using ReactJS/MaterialUI
 Demo link: [http://aurawatch.herokuapp.com]
 
 ## User guide
